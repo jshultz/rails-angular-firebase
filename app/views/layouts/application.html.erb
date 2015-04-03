@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="/">
+  <title>RailsAngularFirebase</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+
+  <%= csrf_meta_tags %>
+</head>
+<body ng-app="newstuffApp">
+
+<%= yield %>
+
+</body>
+</html>

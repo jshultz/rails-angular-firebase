@@ -1,0 +1,740 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"html",
+				"htmlToPlaintext"
+			],
+			[
+				"product",
+				"product_updates_teachers"
+			],
+			[
+				"ng-cl",
+				"ng-click	AngularJS"
+			],
+			[
+				"materials",
+				"materials_path"
+			],
+			[
+				"mater",
+				"materials"
+			],
+			[
+				"last",
+				"last_name"
+			],
+			[
+				"first",
+				"first_name"
+			],
+			[
+				"boo",
+				"bookmarkstatus"
+			],
+			[
+				"loc",
+				"locationName"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"show_re",
+				"show_reworded"
+			],
+			[
+				"current",
+				"current_teacher"
+			],
+			[
+				"show",
+				"show_reworded"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"assess",
+				"assessment_size"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"print",
+				"print-iframe"
+			],
+			[
+				"gen",
+				"generate_button"
+			],
+			[
+				"ge",
+				"generate_button"
+			],
+			[
+				"ques",
+				"questions"
+			],
+			[
+				"partia",
+				"partials"
+			],
+			[
+				"scoring",
+				"scoring_form"
+			],
+			[
+				"part",
+				"partials"
+			],
+			[
+				"scor",
+				"scoring_form"
+			],
+			[
+				"par",
+				"partials"
+			],
+			[
+				"p",
+				"partial"
+			],
+			[
+				"ren",
+				"render"
+			],
+			[
+				"sc",
+				"scoring_form"
+			],
+			[
+				"bu",
+				"bubblesheet"
+			],
+			[
+				"stud",
+				"student_id_size"
+			],
+			[
+				"question",
+				"question_count"
+			],
+			[
+				"form",
+				"formtype"
+			],
+			[
+				"fade",
+				"fadeIn"
+			],
+			[
+				"redirec",
+				"redirect_back_or_default"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 165.0,
+		"last_filter": "project",
+		"selected_items":
+		[
+			[
+				"project",
+				"Project: Save As"
+			],
+			[
+				"blame",
+				"Git: Blame"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"insa",
+				"Package Control: Install Package"
+			],
+			[
+				"insta	",
+				"Package Control: Install Package"
+			],
+			[
+				"isnta	",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal	",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"GitGutter: Compare Against HEAD"
+			],
+			[
+				"gitgutter",
+				"GitGutter: Compare Against HEAD"
+			],
+			[
+				"Package Control: gitg",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"intal",
+				"Package Control: Install Package"
+			],
+			[
+				"pacak",
+				"Preferences: Browse Packages"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 538.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/assets",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/assets/javascripts",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/controllers",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/views",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/views/homes",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/views/layouts",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/db/migrate",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular"
+	],
+	"file_history":
+	[
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-animate.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-aria.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-cookies.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-loader.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-messages.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-resource.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-route.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-sanitize.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular-touch.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/angular.min.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/vendor_all.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/config/routes.rb",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/controllers/homes_controller.rb",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/views/homes/index.html.erb",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/views/layouts/application.html.erb",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/vendor/assets/javascripts/angular/load.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/app/assets/javascripts/application.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular-firebase/config/database.yml",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/filters/htmltoplainttext.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/factories/newstuff_factory.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/directives/inboxcollapse.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/directives/inboxmenu.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/templates/sorts.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/controllers/newstuff_controller.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/templates/_message.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/stylesheets/design/content.css.scss",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/directives/messages_directive.js",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/product_updates_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/templates/index.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/templates/_advanced_filters.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/config/routes.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/controllers/filter_controller.js",
+		"/Users/jasonshultz/Projects/work/mc/app/views/product_updates/index.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/directives/inboxcollapse",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/directives/itemaction.js",
+		"/Users/jasonshultz/Projects/work/mc/app/models/product_updates_teacher.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/models/teacher.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/models/product_update.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/admin/product_updates_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/admin/system_messages_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/workers/product_update_worker.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/views/admin/product_updates/preview.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/Gemfile",
+		"/Users/jasonshultz/Projects/work/mc/app/models/system_message.rb",
+		"/Users/jasonshultz/Projects/work/mc/config/product_profiles.yml",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates/templates/new_stuff.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/config/mailing_lists.yml.sample",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/new_stuff/controllers/newstuff_controller.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/new_stuff_index.js",
+		"/Users/jasonshultz/Projects/work/mc/app/views/layouts/fixed.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/new_stuff/factories/current_teacher_factory.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/new_stuff/templates/new_stuff.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/new_stuff/factories/newstuff_factory.js",
+		"/Users/jasonshultz/Projects/work/mc/vendor/assets/javascripts/angular/angular-sanitize.min.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/new_stuff/templates/advanced_filters.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/config/database.yml",
+		"/Users/jasonshultz/Projects/work/mc/.gitignore",
+		"/Users/jasonshultz/Projects/personal/myapp/app/assets/javascripts/application.js",
+		"/Users/jasonshultz/Projects/personal/myapp/vendor/assets/javascripts/angular/angular.min.js",
+		"/Users/jasonshultz/Projects/personal/myapp/vendor/assets/javascripts/angular/angular-sanitize.min.js",
+		"/Users/jasonshultz/Projects/personal/myapp/config/routes.rb",
+		"/Users/jasonshultz/Projects/personal/myapp/config/environments/development.rb",
+		"/Users/jasonshultz/Projects/personal/myapp/app/controllers/home_controller.rb",
+		"/Users/jasonshultz/Projects/personal/myapp/app/models/user.rb",
+		"/Users/jasonshultz/Projects/personal/myapp/app/views/layouts/application.html.erb",
+		"/Users/jasonshultz/Projects/personal/rails-angular/client/Gruntfile.js",
+		"/Users/jasonshultz/Projects/personal/rails-angular/config/routes.rb",
+		"/Users/jasonshultz/Projects/personal/rails-angular/app/models/group.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/administration/reports_controller.rb",
+		"/Users/jasonshultz/.bash_profile",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/application_controller.rb",
+		"/Users/jasonshultz/Projects/personal/rails-app-starter-kit/config/secrets.yml",
+		"/Users/jasonshultz/Projects/personal/rails-app-starter-kit/config/environments/development.yml",
+		"/Users/jasonshultz/Projects/personal/rails-app-starter-kit/Gemfile",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/controllers/scroll_controller.js",
+		"/Users/jasonshultz/Projects/work/mc/app/views/layouts/_common_assessments_subnav.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/factories/materials_factory.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/templates/materials.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/directives/scroll.js",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/controllers/materials_controller.js",
+		"/Users/jasonshultz/.ssh/config",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/admin/schools_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/workers/add_kid_contacts_sync_worker.rb",
+		"/Users/jasonshultz/Projects/work/mc/lib/integration/clever.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/models/material.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/models/parent.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/administration/materials_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/config/application.rb",
+		"/Users/jasonshultz/Projects/work/mc/config/environments/staging.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/classrooms_controller.rb",
+		"/Users/jasonshultz/.ssh/known_hosts",
+		"/Users/jasonshultz/Projects/work/mc/app/models/class_objective.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/class_objectives_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/objectives_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/admin/pathways_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/models/pathway.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/chewy/materials_index.rb",
+		"/Users/jasonshultz/Downloads/db_resize.js",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/materials_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/templates/_material.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/helpers/sorting_helper.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/templates/_advanced_filters.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/controllers/filters_controller.js",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/administration/item_banks_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/directives/materials_directive.js",
+		"/Users/jasonshultz/Projects/work/mc/app/views/materials/_update_button.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/views/reports/materials/_filters.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/models/kid.rb",
+		"/Users/jasonshultz/Projects/work/mc/config/mongo.yml",
+		"/Users/jasonshultz/Projects/work/mc/app/views/pins/_filters.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/app/views/materials/_filters.html.erb",
+		"/Users/jasonshultz/Projects/work/mc/lib/cron/_template.sh",
+		"/Users/jasonshultz/Projects/work/mc/app/helpers/reports_helper.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/metal/metal_material_controller.rb",
+		"/Users/jasonshultz/Projects/work/mc/app/controllers/assessments_controller.rb",
+		"/Users/jasonshultz/Library/Application Support/Sublime Text 3/Packages/User/GitGutter.sublime-settings",
+		"/Users/jasonshultz/Library/Application Support/Sublime Text 3/Packages/GitGutter/GitGutter.sublime-settings",
+		"/Users/jasonshultz/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/jasonshultz/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/jasonshultz/Projects/personal/SedonaRainbowTroutFarm.com/application/views/welcome_message.php",
+		"/Users/jasonshultz/Projects/personal/SedonaRainbowTroutFarm.com/application/views/contactus_view.php",
+		"/Users/jasonshultz/Projects/personal/SedonaRainbowTroutFarm.com/application/views/sidebar.php",
+		"/Users/jasonshultz/Projects/personal/permianhomes/assets/js/admin.js",
+		"/Users/jasonshultz/Projects/personal/permianhomes/application/views/client/welcome_message.php",
+		"/Users/jasonshultz/Downloads/Started POST \":materials\" for 127.0.0.1 at 2014-11",
+		"/private/var/folders/ql/tjl8_50d1xj9x8y9m6n39s1c0000gp/T/fz3temp-1/config.php",
+		"/Users/jasonshultz/Dropbox/private/client (1).ovpn",
+		"/Users/jasonshultz/Projects/personal/permianhomes/assets/stylesheets/theme/style.css"
+	],
+	"find":
+	{
+		"height": 22.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts",
+			"/Users/jasonshultz/Projects/work/mc/app/workers",
+			"/Users/jasonshultz/Projects/work/mc/app/models",
+			"/Users/jasonshultz/Projects/work/mc/app/controllers/admin",
+			"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/product_updates",
+			"/Users/jasonshultz/Projects/personal/rails-angular/client",
+			"/Users/jasonshultz/Projects/personal/rails-app-starter-kit/config",
+			"/Users/jasonshultz/Projects/work/mc/app/controllers",
+			"/Users/jasonshultz/Projects/work/mc/app/models",
+			"/Users/jasonshultz/Projects/work/mc/app/helpers",
+			"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials/templates",
+			"/Users/jasonshultz/Projects/work/mc/app/models",
+			"/Users/jasonshultz/Projects/work/mc/app/views/materials",
+			"/Users/jasonshultz/Projects/work/mc/app/assets/javascripts/materials",
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc/app/helpers",
+			"/Users/jasonshultz/Projects/personal/permianhomes/assets/js",
+			"/Users/jasonshultz/Projects/personal/permianhomes/application",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/controllers",
+			"/Users/jasonshultz/Projects/work/mc/app/views/objectives",
+			"/Users/jasonshultz/Projects/work/mc/app/views/curriculum_maps",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/views/objectives",
+			"/Users/jasonshultz/Projects/work/mc/app/views/curriculum_maps",
+			"/Users/jasonshultz/Projects/work/mc/app/views/objectives",
+			"/Users/jasonshultz/Projects/work/mc/app/views/class_objectives",
+			"/Users/jasonshultz/Projects/work/mc/app/views/classrooms",
+			"/Users/jasonshultz/Projects/work/mc/app/views/objectives",
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc/app/models",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/views/objectives",
+			"/Users/jasonshultz/Projects/work/mc/app/helpers",
+			"/Users/jasonshultz/Projects/work/mc/app/models",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/views/student_portal",
+			"/Users/jasonshultz/Projects/work/mc",
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc/app/views/pins",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc",
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc/config",
+			"/Users/jasonshultz/Projects/work/mc",
+			"/Users/jasonshultz/Projects/work/masteryteacher/source",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/assets/stylesheets",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/assets/stylesheets",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/controllers",
+			"/Users/jasonshultz/Projects/work/mc/app/views",
+			"/Users/jasonshultz/Projects/work/mc/app/views/student_portal",
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc",
+			"/Users/jasonshultz/Projects/work/mc/app",
+			"/Users/jasonshultz/Projects/work/mc/app/controllers",
+			"/Users/jasonshultz/Projects/work/mc/app/views"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"advancedFilters",
+			"product_updates",
+			"scope.messag",
+			"product_updat",
+			"product_updates",
+			"DelayedMailer",
+			"product_update",
+			"send_product_update",
+			"send_message",
+			"send_system_message",
+			"pry",
+			"_material",
+			"product_updates",
+			"angular_get",
+			"canonix",
+			"group",
+			"wiredep",
+			"priva",
+			"def edit",
+			"_path",
+			"parent_path",
+			"omniauth",
+			"sidekiq",
+			"Sidekiq",
+			"sidekiq",
+			"<<<",
+			"filters.merge({classoom_id: uniq_graph_key})",
+			"filters.merge({classoom_id: uniq_graph_key}),",
+			"scope",
+			"materials",
+			"delete",
+			"materials_update",
+			"datawarehouse_update",
+			"def update",
+			"bookmark",
+			"setup_material_filters",
+			"class_objective",
+			"routeS",
+			"route",
+			"objectives",
+			"apply_curriculum_map_update",
+			"modal-popup",
+			"choose_update_curriculum_maps",
+			"choose",
+			"tracker",
+			"curriculum_map",
+			"curriculum_map_update",
+			"choose_update_tracker",
+			"routes",
+			"ignore this update",
+			"ignore",
+			"material_updates",
+			"used",
+			"updates",
+			"scores_reporting",
+			"HEAD",
+			"param_scale_filter",
+			"scale_filter",
+			"in_collection",
+			"mc.local",
+			"things",
+			"objectives",
+			"\\",
+			"client2",
+			"clien2",
+			"enclave",
+			"student",
+			"new",
+			"other_var",
+			"answer",
+			"tmp",
+			"and",
+			"&&",
+			"do_upload",
+			"database",
+			"devon",
+			"enclave",
+			"devon",
+			"enclave",
+			"Customized / Re-worded Standard",
+			"binding.pry",
+			"Text provided by the original curriculum map creator.",
+			"Customized / Re-worded Standard",
+			"Customized / Re-worded Standard from",
+			"core_show",
+			"Text provided by the original curriculum map creator.",
+			"Text provided by the original curriculum map creator.\nText provided by the original curriculum map creator.",
+			"column-2-1",
+			"curriculum_maps",
+			"view standard",
+			"View Standard",
+			"core_show",
+			"Customized / Re-worded Standard",
+			"@extra_objective_text",
+			"extra_objective_text",
+			"objective/",
+			"curriculum_maps/",
+			"def show",
+			"/curriculum_maps",
+			"$(document).scrollTop(0);",
+			"class=\"popup-menu\"",
+			"find_by_curriculum_map_id_and_objective_id",
+			"core",
+			"Customize / Re-word Standard",
+			"show_objective_description",
+			"setup_student_report",
+			"/report",
+			"progress",
+			"available",
+			"print options",
+			"/report",
+			"print report",
+			"enclave",
+			"reword",
+			"objective_description from_cmap",
+			"edit_stan",
+			"get_objective_desc_override",
+			"et_objective_desc_override(classroom, teacher, obj)",
+			"answers",
+			"student answers",
+			"/classrooms/:classroom_id",
+			"/students/",
+			"AWS",
+			"show",
+			"aws",
+			"aws.yml",
+			"curriculum_map_board",
+			"Resource board"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "rails-angular-firebase.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"_filters",
+				"app/views/reports/_filters.html.erb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 27.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"core_show",
+				"core_show"
+			],
+			[
+				"setup_student_report",
+				"setup_student_report"
+			],
+			[
+				"find_including",
+				"find_including_deleted"
+			],
+			[
+				"show",
+				"show"
+			],
+			[
+				"archived",
+				"archived"
+			],
+			[
+				"assessment_mod",
+				"assessment_modal"
+			],
+			[
+				"cross_link",
+				"cross_link"
+			],
+			[
+				"switch",
+				"switch?"
+			],
+			[
+				"find_imag",
+				"find_images"
+			]
+		],
+		"width": 980.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 266.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

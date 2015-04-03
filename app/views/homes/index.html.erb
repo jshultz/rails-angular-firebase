@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Welcome</h1>
+
+<div class="container">
+	<div class="messages" app-view-segment="0"></div>
+</div>
+
+<br>
+
+<% content_for :javascripts do %>
+    <%= javascript_include_tag :new_stuff_index %>
+<% end %>
