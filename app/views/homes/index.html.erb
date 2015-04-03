@@ -2,11 +2,19 @@
 
 <h1>Welcome</h1>
 
+<a ng-href="/account">Accounts</a>
+
 <div class="container">
-	<div class="messages" app-view-segment="0"></div>
+	<div class="messages" ng-view></div>
 </div>
 
 <br>
+
+<pre>$location.path() = {{$location.path()}}</pre>
+  <pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+  <pre>$route.current.params = {{$route.current.params}}</pre>
+  <pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+  <pre>$routeParams = {{$routeParams}}</pre>
 
 <% content_for :javascripts do %>
     <%= javascript_include_tag :new_stuff_index %>

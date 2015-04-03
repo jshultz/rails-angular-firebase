@@ -22,6 +22,7 @@
         $scope.sorted_by = $routeSegment.name;
 
 
+
         $scope.auth = Auth;
 
         // any time auth status updates, add the user data to scope

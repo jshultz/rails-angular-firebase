@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :homes
 
+  # match '/account' => '#homes#index', via: [:get]
+  # 
+  get '/app/*app' => 'app#index'
+
   root 'homes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,8 +6,6 @@
 
 var newstuffApp = angular.module('newstuffApp', ['ngRoute', 'route-segment', 'view-segment', 'ngAnimate', 'templates', 'truncate', 'firebase']);
 
-
-
 angular.module('newstuffApp').filter('htmlToPlaintext', function() {
     return function(text) {
       return String(text).replace(/<[^>]+>/gm, '');
@@ -16,27 +14,48 @@ angular.module('newstuffApp').filter('htmlToPlaintext', function() {
 
 // This sets up the routes.
 
-newstuffApp.config(['$routeProvider', '$routeSegmentProvider', '$locationProvider', function($routeProvider, $routeSegmentProvider, $locationProvider) {
-    var appConfig = {
-        templateUrl: 'product_updates/templates/index.html',
-        controller: 'newstuffController'
-    };
+newstuffApp.run(["$rootScope", "$location", "$locationProvider", function($rootScope, $location, $locationProvider) {
 
-    $routeSegmentProvider.
-        when('/', 'newstuff').
-        when('/bookmarked', 'newstuff-bookmarked').
-        when('/unread', 'newstuff-unread').
-        segment('newstuff', appConfig).
-        segment('newstuff-bookmarked', appConfig).
-        segment('newstuff-unread', appConfig);
+$locationProvider.html5Mode(true).hashPrefix('!');
 
-    $routeProvider.otherwise({
-        redirectTo: '/'
-    });
-
-    // use the HTML5 History API
-    $locationProvider.html5Mode(true);
+$rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+  // We can catch the error thrown when the $requireAuth promise is rejected
+  // and redirect the user back to the home page
+  if (error === "AUTH_REQUIRED") {
+    $location.path("/home");
+  }
+});
 }]);
+
+newstuffApp.config(["$routeProvider", function($routeProvider) {
+$routeProvider.when("/", {
+  // the rest is the same for ui-router and ngRoute...
+  controller: "newstuffController",
+  templateUrl: "product_updates/templates/index.html",
+  resolve: {
+    // controller will not be loaded until $waitForAuth resolves
+    // Auth refers to our $firebaseAuth wrapper in the example above
+
+  }
+}).when("/account", {
+  // the rest is the same for ui-router and ngRoute...
+  controller: "accountController",
+  templateUrl: "product_updates/templates/account.html",
+  resolve: {
+    // controller will not be loaded until $requireAuth resolves
+    // Auth refers to our $firebaseAuth wrapper in the example above
+    "currentAuth": ["Auth", function(Auth) {
+      // $requireAuth returns a promise so the resolve waits for it to complete
+      // If the promise is rejected, it will throw a $stateChangeError (see above)
+      return Auth.$requireAuth();
+    }]
+  }
+});
+}]);
+
+
+
+
 
 newstuffApp.config([
     "$httpProvider", function($httpProvider) {
@@ -44,4 +63,3 @@ newstuffApp.config([
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     }
 ]);
-
