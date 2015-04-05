@@ -1,17 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Welcome</h1>
-
 
 <div class="container">
-	<div ng-view></div>
+	<div ng-view=""></div>
 	
 </div>
 
 <br>
-
-
-
-<% content_for :javascripts do %>
-    <%= javascript_include_tag :new_stuff_index %>
-<% end %>

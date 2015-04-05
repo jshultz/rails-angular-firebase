@@ -1,8 +1,5 @@
-(function() {
-
-    // This is the Navigation Controller for the Material Angular App. It is being used for managing the Navigation for the app.
-
-    AngularRails.controller('navController', ['$scope', '$http', '$location', '$rootScope', '$sce','Auth','$routeParams','$route', 
+angular.module('AngularRails')
+    .controller('NavCtrl', ['$scope', '$http', '$location', '$rootScope', '$sce','Auth','$routeParams','$route',  
         function($scope, $http, $location, $rootScope, $sce, Auth, $routeParams, $route)  {
         
         var search = $location.search();
@@ -38,6 +35,3 @@
         }
 
     }]);
-
-
-})();
