@@ -1,28 +1,19 @@
-== README
+== Rails Angular Firebase
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Project Overview:
 
-* Ruby version
+* Rails 4.2.0.rc3
 
-* System dependencies
+* Ruby 2.2.2p95
 
-* Configuration
+* I'm using Postgres and Firebase.
 
-* Database creation
+* Firebase for Authentication and some user storage.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+More details to come.
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
