@@ -1,6 +1,6 @@
 (function() {
 
-    // This is the Materials Controller for the Material Angular App. It is being used for getting ALL Materials on the Material Index.
+    // This is the Navigation Controller for the Material Angular App. It is being used for managing the Navigation for the app.
 
     newstuffApp.controller('navController', ['$scope', '$http', '$location', '$rootScope', '$sce','Auth','$routeParams','$route', 
         function($scope, $http, $location, $rootScope, $sce, Auth, $routeParams, $route)  {

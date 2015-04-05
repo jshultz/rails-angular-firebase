@@ -1,6 +1,6 @@
 (function() {
 
-    // This is the Materials Controller for the Material Angular App. It is being used for getting ALL Materials on the Material Index.
+    // This is the Main Controller for the Material Angular App. It is being used for managing most of the static pages for the app.
 
     newstuffApp.controller('newstuffController', ['$scope', '$http', '$location', '$rootScope', '$timeout', '$window', '$q', '$sce', '$sce','Auth', '$routeParams', '$route', 
         function($scope, $http, $location, $rootScope, $timeout, $window, $q, $sce, $sce, Auth, $routeParams, $route)  {

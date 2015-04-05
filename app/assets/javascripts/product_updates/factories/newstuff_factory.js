@@ -2,7 +2,7 @@
     newstuffApp.factory('newstuffService', ['$http', '$location','$routeSegment', function($http, $location, $routeSegment) {
 
 
-        // This is the Materials Factory for the Materials Angular App. Default params come from filters_factory.js
+        // This is the Factory for the Angular App. Default params come from filters_factory.js
 
     var messages = [];
 
