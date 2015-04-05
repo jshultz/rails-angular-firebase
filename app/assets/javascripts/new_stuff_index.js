@@ -31,6 +31,7 @@ newstuffApp.run(["$rootScope", "$location", function($rootScope, $location) {
 
     $routeProvider.when("/", {
       // the rest is the same for ui-router and ngRoute...
+      name: "home",
       controller: "newstuffController",
       templateUrl: "product_updates/templates/index.html",
       resolve: {
@@ -40,6 +41,7 @@ newstuffApp.run(["$rootScope", "$location", function($rootScope, $location) {
       }
     }).when("/account", {
       // the rest is the same for ui-router and ngRoute...
+      name: "account",
       controller: "accountController",
       templateUrl: "product_updates/templates/account.html",
       resolve: {
@@ -50,6 +52,22 @@ newstuffApp.run(["$rootScope", "$location", function($rootScope, $location) {
           // If the promise is rejected, it will throw a $stateChangeError (see above)
           return Auth.$requireAuth();
         }]
+      }
+    }).when("/about", {
+      // the rest is the same for ui-router and ngRoute...
+      name: "about",
+      controller: "newstuffController",
+      templateUrl: "product_updates/templates/about.html",
+      resolve: {
+
+      }
+    }).when("/contact", {
+      // the rest is the same for ui-router and ngRoute...
+      name: "contact",
+      controller: "newstuffController",
+      templateUrl: "product_updates/templates/contact.html",
+      resolve: {
+
       }
     });
   }]);

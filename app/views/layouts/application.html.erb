@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-<base href="/">
-	<title>RailsAngularFirebase</title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<html lang="en">
+		<head>
+			<base href="/">
+			<title>RailsAngularFirebase</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta charset="utf-8">
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<!-- Firebase -->
-	<script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+			<!-- Latest compiled and minified CSS -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-	<!-- AngularFire -->
-	<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+			<!-- Optional theme -->
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
-	<%= csrf_meta_tags %>
-</head>
-<body ng-app="newstuffApp">
+			<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+			<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-<%= yield %>
+			<!-- Latest compiled and minified JavaScript -->
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-</body>
-</html>
+			<!-- Firebase -->
+			<script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+
+			<!-- AngularFire -->
+			<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+
+			<%= csrf_meta_tags %>
+		</head>
+
+		<body ng-app="newstuffApp">
+			<div ng-include="'product_updates/templates/nav.html'"></div>
+
+			<%= yield %>
+
+		</body>
+
+	</html>

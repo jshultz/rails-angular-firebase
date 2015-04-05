@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # 
   get '/app/*app' => 'app#index'
 
-  # get '/account' => 'homes#index'
+  get '/about' => 'homes#index'
+  get '/account' => 'homes#index'
+  get '/contact' => 'homes#index'
 
   root 'homes#index'
 
