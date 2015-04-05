@@ -1,4 +1,4 @@
-newstuffApp.directive('inboxMenu', [function() {
+AngularRails.directive('inboxMenu', [function() {
 	
 
 	return {

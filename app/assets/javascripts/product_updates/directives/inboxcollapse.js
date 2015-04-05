@@ -1,4 +1,4 @@
-newstuffApp.directive('inboxCollapse', [function() {
+AngularRails.directive('inboxCollapse', [function() {
 	
 
 	return {

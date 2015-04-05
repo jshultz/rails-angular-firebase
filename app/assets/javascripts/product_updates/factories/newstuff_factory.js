@@ -1,5 +1,5 @@
 (function () {
-    newstuffApp.factory('newstuffService', ['$http', '$location','$routeSegment', function($http, $location, $routeSegment) {
+    AngularRails.factory('newstuffService', ['$http', '$location','$routeSegment', function($http, $location, $routeSegment) {
 
 
         // This is the Factory for the Angular App. Default params come from filters_factory.js

@@ -1,4 +1,4 @@
-newstuffApp.controller("accountController", ["currentAuth", "Auth", "$scope", function(currentAuth, Auth, $scope) {
+AngularRails.controller("accountController", ["currentAuth", "Auth", "$scope", function(currentAuth, Auth, $scope) {
   // currentAuth (provided by resolve) will contain the
   // authenticated user or null if not logged in
 

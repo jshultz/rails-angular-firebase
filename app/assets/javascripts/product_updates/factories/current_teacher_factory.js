@@ -2,7 +2,7 @@
 
   //  This gets the current logged in teacher. It's magic. :)
     
-  newstuffApp.factory('currentTeacherService', ['$http', function($http) {
+  AngularRails.factory('currentTeacherService', ['$http', function($http) {
     return {
       getCurrentTeacher: function(params) {
         return $http.get( '/current_teacher.js').then(function(result) {

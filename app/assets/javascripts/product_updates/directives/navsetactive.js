@@ -1,4 +1,4 @@
-newstuffApp.directive('navSetActive', [function() {
+AngularRails.directive('navSetActive', [function() {
 	
 
 	return {

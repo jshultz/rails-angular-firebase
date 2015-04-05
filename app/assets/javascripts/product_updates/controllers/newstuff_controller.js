@@ -2,7 +2,7 @@
 
     // This is the Main Controller for the Material Angular App. It is being used for managing most of the static pages for the app.
 
-    newstuffApp.controller('newstuffController', ['$scope', '$http', '$location', '$rootScope', '$timeout', '$window', '$q', '$sce', '$sce','Auth', '$routeParams', '$route', 
+    AngularRails.controller('newstuffController', ['$scope', '$http', '$location', '$rootScope', '$timeout', '$window', '$q', '$sce', '$sce','Auth', '$routeParams', '$route', 
         function($scope, $http, $location, $rootScope, $timeout, $window, $q, $sce, $sce, Auth, $routeParams, $route)  {
         
         var search = $location.search();

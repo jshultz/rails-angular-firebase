@@ -4,9 +4,9 @@
 
 // This loads the New Stuff Angular App.
 
-var newstuffApp = angular.module('newstuffApp', ['ngRoute', 'route-segment', 'view-segment', 'ngAnimate', 'templates', 'truncate', 'firebase']);
+var AngularRails = angular.module('AngularRails', ['ngRoute', 'route-segment', 'view-segment', 'ngAnimate', 'templates', 'truncate', 'firebase']);
 
-angular.module('newstuffApp').filter('htmlToPlaintext', function() {
+angular.module('AngularRails').filter('htmlToPlaintext', function() {
     return function(text) {
       return String(text).replace(/<[^>]+>/gm, '');
     }
@@ -14,7 +14,7 @@ angular.module('newstuffApp').filter('htmlToPlaintext', function() {
 
 // This sets up the routes.
 
-newstuffApp.run(["$rootScope", "$location", function($rootScope, $location) {
+AngularRails.run(["$rootScope", "$location", function($rootScope, $location) {
 
   $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
     // We can catch the error thrown when the $requireAuth promise is rejected
@@ -25,7 +25,7 @@ newstuffApp.run(["$rootScope", "$location", function($rootScope, $location) {
   });
   }]);
 
-  newstuffApp.config(["$locationProvider", "$routeProvider", function($locationProvider, $routeProvider) {
+  AngularRails.config(["$locationProvider", "$routeProvider", function($locationProvider, $routeProvider) {
 
     $locationProvider.html5Mode(true);
 
@@ -76,7 +76,7 @@ newstuffApp.run(["$rootScope", "$location", function($rootScope, $location) {
 
 
 
-newstuffApp.config([
+AngularRails.config([
     "$httpProvider", function($httpProvider) {
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

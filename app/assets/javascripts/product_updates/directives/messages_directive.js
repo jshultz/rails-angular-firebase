@@ -1,4 +1,4 @@
-newstuffApp.directive('messageItem', [function() {
+AngularRails.directive('messageItem', [function() {
 
     // This is a directive, it is used to populate the li Message in the index of the Product Updates Angular App.
 

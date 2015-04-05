@@ -2,7 +2,7 @@
 
     // This is the Navigation Controller for the Material Angular App. It is being used for managing the Navigation for the app.
 
-    newstuffApp.controller('navController', ['$scope', '$http', '$location', '$rootScope', '$sce','Auth','$routeParams','$route', 
+    AngularRails.controller('navController', ['$scope', '$http', '$location', '$rootScope', '$sce','Auth','$routeParams','$route', 
         function($scope, $http, $location, $rootScope, $sce, Auth, $routeParams, $route)  {
         
         var search = $location.search();
