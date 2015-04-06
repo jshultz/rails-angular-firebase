@@ -13,16 +13,6 @@ angular.module('AngularRails')
           $scope.authData = authData;
         });
 
-        $scope.facebookLogin = function() {
-            var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-
-            ref.authWithOAuthPopup("facebook", function(error, authData) {
-              if (error) {
-                console.log("Login Failed!", error);
-              } else {
-                console.log("Authenticated successfully with payload:", authData);
-              }
-            });
-        }
+        
 
     }]);
