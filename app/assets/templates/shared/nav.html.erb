@@ -16,16 +16,11 @@
       <ul class="nav navbar-nav">
         <li ng-class="menuClass('about')" class=""><a href="/about">About <span class="sr-only">(current)</span></a></li>
         <li ng-class="menuClass('contact')"><a href="/contact">Contact</a></li>
-        <li class="dropdown">
+        <li ng-class="menuClass('account')" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/account">Account</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li ng-show="authData"><a href="/account">Account</a></li>
+            <li ng-hide="authData"><a href="/login">Login / Create Account</a></li>
           </ul>
         </li>
       </ul>

@@ -3,13 +3,15 @@ Rails.application.routes.draw do
 
   # match '/account' => '#homes#index', via: [:get]
   # 
-  get '/app/*app' => 'app#index'
+  # get '/app/*app' => 'app#index'
 
-  get '/about' => 'homes#index'
-  get '/account' => 'homes#index'
-  get '/contact' => 'homes#index'
+  # get '/about' => 'homes#index'
+  # get '/account' => 'homes#index'
+  # get '/contact' => 'homes#index'
 
   root 'homes#index'
+
+  get '*path' => 'homes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
