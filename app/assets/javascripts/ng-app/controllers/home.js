@@ -11,7 +11,9 @@ angular.module('AngularRails')
         // any time auth status updates, add the user data to scope
         $scope.auth.$onAuth(function(authData) {
           $scope.authData = authData;
+          console.log('authData', authData);
         });
+
 
         
 
