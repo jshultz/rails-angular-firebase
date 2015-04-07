@@ -2,12 +2,8 @@
 <div id="angularMaterial">
 <h2>Home Page</h2>
 
-<div>ThePath: {{ thepath }}</div>
-
-<div ng-click="facebookLogin()">facebook login</div>  
-
 	<div ng-show="authData">
-		<p>Hello, {{ authData.facebook.displayName }}</p>
+		<p>Hello, {{ displayName }}</p>
 		<button ng-click="auth.$unauth()">Logout</button>
 	</div>
 	<div ng-hide="authData">

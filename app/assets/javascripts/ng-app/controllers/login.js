@@ -6,7 +6,7 @@ angular.module('AngularRails')
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
-    var USERS_LOCATION = 'https://rails-angular-fireba.firebaseio.com/users';
+    
 
     // we would probably save a profile when we register new users on our site
     // we could also read the profile to see if it's null
