@@ -19,15 +19,16 @@
 
 	    // Tests to see if /users/<userId> has any data. 
 	    checkIfUserExists: function(authData) {
-	      var usersRef = new Firebase(USERS_LOCATION);
-	      usersRef.child(authData.uid).once('value', function(snapshot) {
-	        var exists = (snapshot.val() !== null);
+			var USERS_LOCATION = 'https://rails-angular-fireba.firebaseio.com/users';
+			var usersRef = new Firebase(USERS_LOCATION);
+			usersRef.child(authData.uid).once('value', function(snapshot) {
+			var exists = (snapshot.val() !== null);
 
-	        if (!exists) {
-	          userExistsCallback(authData);
-	        }
-	        
-	      });
+			if (!exists) {
+				userExistsCallback(authData);
+			}
+
+			});
 	    } // checkIfUserExists
 
     };
