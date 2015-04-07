@@ -3,7 +3,8 @@
   //  This gets the current logged in teacher. It's magic. :)
     
   angular.module('AngularRails').factory('UserData', ['$http', function($http) {
-    return {
+
+  	var factory = {
 
 	    // find a suitable name based on the meta info given by each provider
 	    getName: function(authData) {
@@ -22,16 +23,14 @@
 
 	    userExistsCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-			ref.onAuth(function(authData) {
 			if (authData) {
 			  // save the user's profile into Firebase so we can list users,
 			  // use them in Security and Firebase Rules, and show profiles
 			  ref.child("users").child(authData.uid).set({
 			    provider: authData.provider,
-			    full_name: UserData.getName(authData),
+			    full_name: factory.getName(authData),
 			  });
 		    }
-		  });
 		}, // userExistsCallback
 
 	    // Tests to see if /users/<userId> has any data. 
@@ -42,12 +41,17 @@
 			var exists = (snapshot.val() !== null);
 
 			if (!exists) {
-				userExistsCallback(authData);
+				factory.userExistsCallback(authData);
 			}
 
 			});
 	    } // checkIfUserExists
 
-    };
+
+
+  	}
+
+  	return factory;
+
   }]);
 })();

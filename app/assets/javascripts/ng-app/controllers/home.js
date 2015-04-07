@@ -12,7 +12,6 @@ angular.module('AngularRails')
         $scope.auth.$onAuth(function(authData) {
           $scope.authData = authData;
           $scope.displayName = UserData.getName(authData)
-          console.log('authData', authData);
         });
 
 
