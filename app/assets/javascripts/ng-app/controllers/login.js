@@ -1,6 +1,6 @@
 angular.module('AngularRails')
-    .controller('LoginCtrl', ["Auth", "$scope","$location","$timeout", 
-        function(Auth, $scope, $location, $timeout)  {
+    .controller('LoginCtrl', ["Auth", "$scope","$location","$timeout","UserData", 
+        function(Auth, $scope, $location, $timeout, UserData)  {
 
     $scope.auth = Auth;
 
@@ -13,18 +13,6 @@ angular.module('AngularRails')
     // here we will just simulate this with an isNewUser boolean
     var isNewUser = true;
 
-    // find a suitable name based on the meta info given by each provider
-    function getName(authData) {
-      switch(authData.provider) {
-         case 'password':
-           return authData.password.email.replace(/@.*/, '');
-         case 'twitter':
-           return authData.twitter.displayName;
-         case 'facebook':
-           return authData.facebook.displayName;
-      }
-    } // getName
-
     userExistsCallback = function (authData) {
 
       ref.onAuth(function(authData) {
@@ -33,24 +21,11 @@ angular.module('AngularRails')
           // use them in Security and Firebase Rules, and show profiles
           ref.child("users").child(authData.uid).set({
             provider: authData.provider,
-            full_name: getName(authData),
+            full_name: UserData.getName(authData),
           });
         }
       });
     } // userExistsCallback
-
-    // Tests to see if /users/<userId> has any data. 
-    function checkIfUserExists(authData) {
-      var usersRef = new Firebase(USERS_LOCATION);
-      usersRef.child(authData.uid).once('value', function(snapshot) {
-        var exists = (snapshot.val() !== null);
-
-        if (!exists) {
-          userExistsCallback(authData);
-        }
-        
-      });
-    } // checkIfUserExists
 
 
     // any time auth status updates, add the user data to scope
@@ -59,7 +34,7 @@ angular.module('AngularRails')
         console.log('authData', authData);
 
         if (authData) {
-          checkIfUserExists(authData);
+          UserData.checkIfUserExists(authData);
             $timeout(function(){ 
                $location.path('/');
           },1);
@@ -67,56 +42,10 @@ angular.module('AngularRails')
 
       });
 
-
     // any time auth status updates, add the user data to scope
     $scope.auth.$onAuth(function(authData) {
       $scope.authData = authData;
     });
-
-  	$scope.facebookLogin = function() {
-
-        ref.authWithOAuthPopup("facebook", function(error, authData) {
-          console.log('here')
-          if (error) {
-            console.log("Login Failed!", error);
-          } else {
-            checkIfUserExists(authData);
-            $timeout(function(){ 
-               $location.path('/');
-            },1);
-          }
-        });
-    } // facebookLogin
-
-    $scope.googleLogin = function() {
-
-      ref.authWithOAuthPopup("google", function(error, authData) {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
-          // storeData(authData);
-          checkIfUserExists(authData);
-          $timeout(function(){ 
-               $location.path('/');
-            },1);
-        }
-      });
-    } // googleLogin
-
-    $scope.twitterLogin = function() {
-
-      ref.authWithOAuthPopup("twitter", function(error, authData) {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
-          // storeData(authData);
-          checkIfUserExists(authData);
-          $timeout(function(){ 
-               $location.path('/');
-            },1);
-        }
-      });
-    } // twitterLogin
 
 
 }]);
