@@ -20,6 +20,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li ng-show="authData"><a href="/account">Account</a></li>
+            <li ng-show="authData"><a href="#" ng-click="auth.$unauth()">Logout</a></li>
             <li ng-hide="authData"><a href="/login">Login / Create Account</a></li>
           </ul>
         </li>
