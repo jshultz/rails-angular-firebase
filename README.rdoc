@@ -9,6 +9,8 @@ Project Overview:
 
 * Ruby 2.2.2p95
 
+* jQuery v1.8.3
+
 * I'm using Postgres and Firebase.
 
 * Firebase for Authentication and some user storage.
