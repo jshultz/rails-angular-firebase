@@ -1,7 +1,6 @@
 == Rails Angular Firebase
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal of this project is to provide a launching pad for projects that are using Rails and Angular. We'll be using Firebase for authentication and some user data storage. Most of the data will be stored in Postgres, however. This will aid in keeping the site speedy and low maintenance.
 
 Project Overview:
 
