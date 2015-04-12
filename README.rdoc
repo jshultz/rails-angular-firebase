@@ -23,6 +23,7 @@ TODO:
 1. Implement a way to check if the user exists or not.
 2. User Managment.
 3. After user creates an account, route them to add an email address. This will aide in #1.
+4. Need to implement a process to backup user to postgres after they've been authenticated/created in firebase.
 
 
 Please feel free to use a different markup language if you do not plan to run
