@@ -2,6 +2,8 @@
 
 The goal of this project is to provide a launching pad for projects that are using Rails and Angular. We'll be using Firebase for authentication and some user data storage. Most of the data will be stored in Postgres, however. This will aid in keeping the site speedy and low maintenance.
 
+I'll be backing up some user data into PostGres. 
+
 Project Overview:
 
 * Rails 4.2.0.rc3
@@ -15,6 +17,13 @@ Project Overview:
 * Firebase for Authentication and some user storage.
 
 More details to come.
+
+TODO: 
+
+1. Implement a way to check if the user exists or not.
+2. User Managment.
+3. After user creates an account, route them to add an email address. This will aide in #1.
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
