@@ -1,0 +1,25 @@
+<!-- This is the 1st Step after account creation. -->
+<div id="angularMaterial">
+<h2>Add your e-mail.</h2>
+
+	<div ng-hide="authData">
+
+		<form name="step1">
+			Email: <input type="email" name="input" ng-model="email.text" required>
+			<span class="error" ng-show="myForm.input.$error.required">
+			  Required!</span>
+			<span class="error" ng-show="myForm.input.$error.email">
+			  Not valid email!</span>
+
+			<input type="submit" id="submit" value="Submit Email Address." />
+		</form>
+
+		Email: <input type="email" name="input" ng-model="email.text" required>
+
+		<button ng-click="auth.$authWithOAuthPopup('facebook')">Login With Facebook</button>
+		<button ng-click="auth.$authWithOAuthPopup('twitter')">Login With Twitter</button>
+
+	</div>
+	
+
+</div>
