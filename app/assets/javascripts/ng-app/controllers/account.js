@@ -3,6 +3,7 @@ angular.module('AngularRails')
         function(currentAuth, Auth, $scope, $location, $timeout, UserData)  {
 
     $scope.auth = Auth;
+    $scope.email = '';
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
@@ -14,6 +15,14 @@ angular.module('AngularRails')
         }
 
       });
+
+      $scope.step1 = function() {
+        console.log('email', this.email);
+        // console.log('scope', $scope.text)
+        if ($scope.email) {
+          $scope.email = '';
+        }
+    }
 
 
 }]);
