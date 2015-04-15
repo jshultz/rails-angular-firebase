@@ -17,9 +17,21 @@ angular.module('AngularRails')
       });
 
       $scope.step1 = function() {
+
         console.log('email', this.email);
-        // console.log('scope', $scope.text)
         if ($scope.email) {
+
+          var onComplete = function(error) {
+            if (error) {
+              console.log('Synchronization failed');
+            } else {
+              console.log('Synchronization succeeded');
+            }
+          };
+
+          ref.child('users').child(currentAuth.uid).update({ email: this.email }, onComplete);
+
+
           $scope.email = '';
         }
     }

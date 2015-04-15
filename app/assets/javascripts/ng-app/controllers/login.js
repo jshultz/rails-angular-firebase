@@ -19,7 +19,7 @@ angular.module('AngularRails')
           UserData.checkIfUserExists(authData).then(function(response){
             if (response == 'created') {
               $timeout(function(){ 
-                   $location.path('/');
+                   $location.path('/account/step1');
               },1); // timeout
             } else {
               $timeout(function(){ 
