@@ -12,6 +12,14 @@ angular
           templateUrl: "static/index.html",
           resolve: {
           }
+        }).when("/about", {
+          // the rest is the same for ui-router and ngRoute...
+          name: "about",
+          controller: "HomeCtrl",
+          templateUrl: "static/about.html",
+          resolve: {
+
+          }
         }).when("/account", {
           // the rest is the same for ui-router and ngRoute...
           name: "account",
@@ -40,13 +48,19 @@ angular
               return Auth.$requireAuth();
             }]
           }
-        }).when("/about", {
+        }).when("/admin", {
           // the rest is the same for ui-router and ngRoute...
-          name: "about",
-          controller: "HomeCtrl",
-          templateUrl: "static/about.html",
+          name: "admin",
+          controller: "AdminCtrl",
+          templateUrl: "admin/home.html",
           resolve: {
-
+            // controller will not be loaded until $requireAuth resolves
+            // Auth refers to our $firebaseAuth wrapper in the example above
+            "currentAuth": ["Auth", function(Auth) {
+              // $requireAuth returns a promise so the resolve waits for it to complete
+              // If the promise is rejected, it will throw a $stateChangeError (see above)
+              return Auth.$requireAuth();
+            }]
           }
         }).when("/contact", {
           // the rest is the same for ui-router and ngRoute...
