@@ -24,8 +24,10 @@ angular.module('AngularRails')
           var onComplete = function(error) {
             if (error) {
               console.log('Synchronization failed');
+              $location.path('/account/step1');
             } else {
               console.log('Synchronization succeeded');
+              $location.path('/');
             }
           };
 

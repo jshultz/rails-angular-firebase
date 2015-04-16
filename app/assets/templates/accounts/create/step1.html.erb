@@ -10,15 +10,9 @@
 		    <input type="submit" id="submit" value="Submit Email Address." />
 		    
 		    <span class="error" ng-show="myForm.input.$error.required">
-		      Required!</span>
+		      Your email address is required, please.</span>
 		    <span class="error" ng-show="myForm.input.$error.email">
-		      Not valid email!</span>
-		    <tt>text = {{email.text}}</tt><br/>
-		    <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-		    <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-		    <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-		    <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
-		    <tt>myForm.$error.email = {{!!myForm.$error.email}}</tt><br/>
+		      That is not a valid email address, yet.</span>
 		 </form>
 
 	</div>
