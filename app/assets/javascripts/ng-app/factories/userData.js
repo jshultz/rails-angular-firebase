@@ -1,7 +1,7 @@
 (function() {
 
   //  This gets the current logged in teacher. It's magic. :)
-    
+
   angular.module('AngularRails').factory('UserData', ['$http','$q', function($http,$q) {
 
   	var factory = {
@@ -18,8 +18,16 @@
 				  return authData.facebook.displayName;
 				}
 	    	}
-	      
+
 	    }, // getName
+
+	    getUsers: function(params) {
+			return $http.get('https://rails-angular-fireba.firebaseio.com/users.json', {
+			  "params" : params
+			}).then(function(result) {
+			  return result.data;
+			});
+		}, // getUsers
 
 	    userExistsCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
@@ -34,7 +42,7 @@
 		    }
 		}, // userExistsCallback
 
-	    // Tests to see if /users/<userId> has any data. 
+	    // Tests to see if /users/<userId> has any data.
 	    checkIfUserExists: function(authData) {
 	    	var deferred = $q.defer();
 			var USERS_LOCATION = 'https://rails-angular-fireba.firebaseio.com/users';
