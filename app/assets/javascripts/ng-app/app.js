@@ -1,7 +1,7 @@
 angular
     .module('AngularRails',[
-      'ngRoute', 
-      'templates', 
+      'ngRoute',
+      'templates',
       'firebase'])
     .config(function ($routeProvider, $locationProvider) {
 
@@ -25,6 +25,20 @@ angular
           name: "account",
           controller: "AcctCtrl",
           templateUrl: "accounts/accounts.html",
+          resolve: {
+            // controller will not be loaded until $requireAuth resolves
+            // Auth refers to our $firebaseAuth wrapper in the example above
+            "currentAuth": ["Auth", function(Auth) {
+              // $requireAuth returns a promise so the resolve waits for it to complete
+              // If the promise is rejected, it will throw a $stateChangeError (see above)
+              return Auth.$requireAuth();
+            }]
+          }
+        }).when("/account/profile", {
+          // the rest is the same for ui-router and ngRoute...
+          name: "profile",
+          controller: "AcctCtrl",
+          templateUrl: "accounts/profile.html",
           resolve: {
             // controller will not be loaded until $requireAuth resolves
             // Auth refers to our $firebaseAuth wrapper in the example above

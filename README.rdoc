@@ -20,9 +20,10 @@ More details to come.
 
 TODO:
 
-1. Add security features.
+1. Add security features. [sort of done]
 2. User Managment: We can list users, we now need to be able to edit users.
 3. Need to implement a process to backup user to postgres after they've been authenticated/created in firebase.
+4. Build out profile.
 
 
 Please feel free to use a different markup language if you do not plan to run
