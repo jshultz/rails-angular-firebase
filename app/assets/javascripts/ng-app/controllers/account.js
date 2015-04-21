@@ -1,5 +1,5 @@
 angular.module('AngularRails')
-    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData", 
+    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData",
         function(currentAuth, Auth, $scope, $location, $timeout, UserData)  {
 
     $scope.auth = Auth;
@@ -16,9 +16,16 @@ angular.module('AngularRails')
 
       });
 
+      $scope.update = function(user) {
+        $scope.master = angular.copy(user);
+      };
+
+      $scope.reset = function() {
+        $scope.user = angular.copy($scope.master);
+      };
+
       $scope.step1 = function() {
 
-        console.log('email', this.email);
         if ($scope.email) {
 
           var onComplete = function(error) {
@@ -33,10 +40,9 @@ angular.module('AngularRails')
 
           ref.child('users').child(currentAuth.uid).update({ email: this.email }, onComplete);
 
-
           $scope.email = '';
         }
-    }
+      }
 
 
 }]);

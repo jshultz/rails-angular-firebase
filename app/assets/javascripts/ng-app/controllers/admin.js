@@ -7,8 +7,6 @@ angular.module('AngularRails')
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
-    console.log('$scope.users', $scope.users)
-
     // any time auth status updates, add the user data to scope
       $scope.auth.$onAuth(function(authData) {
         $scope.authData = authData;
