@@ -48,7 +48,8 @@ angular.module('AngularRails')
 
         console.log('$scope.profile', this.profile)
 
-        profile = $scope.profile;
+        address = $scope.profile;
+        address.user_id = currentAuth.uid;
 
         if ($scope.profile) {
 
@@ -62,7 +63,7 @@ angular.module('AngularRails')
             }
           };
 
-          ref.child('address').set({ profile }, onComplete);
+          ref.child('profile').set({ address }, onComplete);
 
           $scope.email = '';
         }
