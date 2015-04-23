@@ -12,14 +12,8 @@ angular.module('AngularRails')
         $scope.authData = authData;
         if (authData) {
         	$scope.displayName = UserData.getName(authData);
-
-          // Attach an asynchronous callback to read the data at our posts reference
-          ref.child('address').on("value", function(snapshot) {
-            $scope.address =  snapshot.val();
-            console.log('$scope.address', $scope.address);
-          }, function (errorObject) {
-            $scope.address =  null;
-          });
+          $scope.address = UserData.getAddress(authData);
+          console.log('here', $scope.address);
         }
 
       });

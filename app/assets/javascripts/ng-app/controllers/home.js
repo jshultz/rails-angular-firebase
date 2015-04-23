@@ -1,7 +1,7 @@
 angular.module('AngularRails')
-    .controller('HomeCtrl', ['$scope', '$http', '$location', '$rootScope', '$timeout', '$window', '$q', '$sce', '$sce','Auth', '$routeParams', '$route','UserData', 
+    .controller('HomeCtrl', ['$scope', '$http', '$location', '$rootScope', '$timeout', '$window', '$q', '$sce', '$sce','Auth', '$routeParams', '$route','UserData',
         function($scope, $http, $location, $rootScope, $timeout, $window, $q, $sce, $sce, Auth, $routeParams, $route, UserData)  {
-        
+
         var search = $location.search();
         var initialLoad = true;
         $scope.thepath = $location.path();
@@ -11,10 +11,10 @@ angular.module('AngularRails')
         // any time auth status updates, add the user data to scope
         $scope.auth.$onAuth(function(authData) {
           $scope.authData = authData;
-          $scope.displayName = UserData.getName(authData)
+          $scope.displayName = UserData.getName(authData);
         });
 
 
-        
+
 
     }]);
