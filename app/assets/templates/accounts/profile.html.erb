@@ -2,6 +2,14 @@
 <div id="angularMaterial">
 <h2>Edit Your Profile Page</h2>
 
+  <div>
+    <h3>You're Current Address Is:</h3>
+    <div>
+      <p ng-if="address != null">Address: {{ address }}</p>
+      <p>crap: {{ crap }}</p>
+    </div>
+  </div>
+
       <form novalidate class="simple-form">
         Street Address: <input type="text" ng-model="profile.streetaddress" /><br />
         City: <input type="text" ng-model="profile.city" /><br />

@@ -7,6 +7,7 @@
   	var factory = {
 
 	    // find a suitable name based on the meta info given by each provider
+	    //
 	    getName: function(authData) {
 	    	if (authData) {
 	    	switch(authData.provider) {

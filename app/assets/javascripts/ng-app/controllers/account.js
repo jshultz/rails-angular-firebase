@@ -11,10 +11,20 @@ angular.module('AngularRails')
       $scope.auth.$onAuth(function(authData) {
         $scope.authData = authData;
         if (authData) {
-        	$scope.displayName = UserData.getName(authData)
+        	$scope.displayName = UserData.getName(authData);
+
+          // Attach an asynchronous callback to read the data at our posts reference
+          ref.child('address').on("value", function(snapshot) {
+            $scope.address =  snapshot.val();
+            console.log('$scope.address', $scope.address);
+          }, function (errorObject) {
+            $scope.address =  null;
+          });
         }
 
       });
+
+      $scope.crap = 'crap';
 
       $scope.update = function(user) {
         $scope.master = angular.copy(user);
@@ -42,7 +52,7 @@ angular.module('AngularRails')
 
           $scope.email = '';
         }
-      }
+      } // $scope.step1
 
       $scope.addressUpdate = function() {
 
@@ -73,7 +83,7 @@ angular.module('AngularRails')
 
           $scope.email = '';
         }
-      }
+      } // $scope.addressUpdate
 
 
 }]);
