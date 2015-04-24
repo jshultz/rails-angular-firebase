@@ -10,16 +10,20 @@
 	    //
 
 	    getAddress: function(authData) {
-	    	// Attach an asynchronous callback to read the data at our posts reference
-          var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-          ref.child('address').child(authData.uid).on("value", function(snapshot) {
-            var address =  snapshot.val();
-            console.log('address.streetaddress', address.streetaddress);
-            return address;
+            var deferred = $q.defer();
+            // Attach an asynchronous callback to read the data at our posts reference
+            var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+            ref.child('address').child(authData.uid).on("value", function(snapshot) {
+                if (snapshot) {
+                    var address =  snapshot.val();
+                    console.log('address.streetaddress', address.streetaddress);
+                    deferred.resolve(snapshot.val());
+                } else {
+                    deferred.resolve(null)
+                }
+            });
 
-          }, function (errorObject) {
-            return  null;
-          }); // get Address.
+            return deferred.promise;
 
 	    },
 	    getName: function(authData) {

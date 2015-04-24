@@ -1,19 +1,32 @@
 angular.module('AngularRails')
-    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData",
-        function(currentAuth, Auth, $scope, $location, $timeout, UserData)  {
+    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData","$q",
+        function(currentAuth, Auth, $scope, $location, $timeout, UserData, $q)  {
 
     $scope.auth = Auth;
     $scope.email = '';
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
+    var callback = function(){
+      $scope.$apply()
+    }
+
     // any time auth status updates, add the user data to scope
       $scope.auth.$onAuth(function(authData) {
         $scope.authData = authData;
         if (authData) {
         	$scope.displayName = UserData.getName(authData);
-          $scope.address = UserData.getAddress(authData);
-          console.log('here', $scope.address);
+
+          UserData.getAddress(authData).then(function(response){
+            if (response != null) {
+              $scope.address = response;
+              // $scope.$apply();
+            } else {
+              $scope.address = '';
+            }
+          }); // checkIfUserExists
+
+
         }
 
       });

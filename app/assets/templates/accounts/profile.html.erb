@@ -3,10 +3,18 @@
 <h2>Edit Your Profile Page</h2>
 
   <div>
-    <h3>You're Current Address Is:</h3>
-    <div>
-      <p ng-if="address">Address: {{ address }}</p>
-      <p>crap: {{ crap }}</p>
+    <div ng-if="address">
+      <h4>You're registered Address</h4>
+      <p>
+        <strong>Street:</strong> {{address.streetAddress }}<br/>
+        <strong>City:</strong> {{ address.city }}<br/>
+        <strong>State:</strong> {{ address.state }}<br/>
+        <strong>Zip:</strong> {{ address.zip }}<br/>
+      </p>
+    </div>
+    <div ng-if="!address">
+    <h4>You're address is not registered. Would you please consider registering it?</h4>
+
     </div>
   </div>
 
