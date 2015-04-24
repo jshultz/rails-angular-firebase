@@ -20,7 +20,6 @@ angular.module('AngularRails')
           UserData.getAddress(authData).then(function(response){
             if (response != null) {
               $scope.address = response;
-              // $scope.$apply();
             } else {
               $scope.address = '';
             }
@@ -30,8 +29,6 @@ angular.module('AngularRails')
         }
 
       });
-
-      $scope.crap = 'crap';
 
       $scope.update = function(user) {
         $scope.master = angular.copy(user);
@@ -63,8 +60,6 @@ angular.module('AngularRails')
 
       $scope.addressUpdate = function() {
 
-        console.log('$scope.profile', this.profile)
-
         address = $scope.profile;
 
         if ($scope.profile) {
@@ -89,6 +84,8 @@ angular.module('AngularRails')
            }, onComplete);
 
           $scope.email = '';
+
+          $scope.address = address;
         }
       } // $scope.addressUpdate
 

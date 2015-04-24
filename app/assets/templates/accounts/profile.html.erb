@@ -6,7 +6,7 @@
     <div ng-if="address">
       <h4>You're registered Address</h4>
       <p>
-        <strong>Street:</strong> {{address.streetAddress }}<br/>
+        <strong>Street:</strong> {{address.streetaddress }}<br/>
         <strong>City:</strong> {{ address.city }}<br/>
         <strong>State:</strong> {{ address.state }}<br/>
         <strong>Zip:</strong> {{ address.zip }}<br/>
@@ -26,8 +26,5 @@
         <input type="button" ng-click="reset()" value="Reset" />
         <input type="submit" ng-click="addressUpdate(profile)" value="Save" />
       </form>
-      <pre>form = {{profile | json}}</pre>
-      <pre>master = {{master | json}}</pre>
-
 
 </div>
