@@ -21,11 +21,28 @@
     </div>
 
       <form novalidate class="simple-form">
-        Street Address: <input type="text" ng-model="profile.streetaddress" /><br />
-        City: <input type="text" ng-model="profile.city" /><br />
-        State: <input type="text" ng-model="profile.state" />
-        Zip: <input type="text" ng-model="profile.zip" />
-        <input type="submit" ng-click="addressUpdate(profile)" value="Save" />
+
+        <div class="form-group">
+          <label for="streetAddress">Street Address</label>
+          <input type="text" class="form-control" id="streetAddress" placeholder="Street Address" ng-model="profile.streetaddress">
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="City" ng-model="profile.city">
+        </div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" class="form-control" id="city" placeholder="State" ng-model="profile.state">
+        </div>
+
+        <div class="form-group">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control" id="zip" placeholder="Zip" ng-model="profile.zip">
+        </div>
+
+        <input class="btn btn-default" type="button" ng-click="addressUpdate(profile)" value="Save" />
       </form>
 
   </div>
@@ -45,10 +62,17 @@
 
     <form novalidates class="simple-form">
 
-      Personal: <input type="text" ng-model="phone.personal" /><br />
-      Work: <input type="text" ng-model="phone.work" />
+        <div class="form-group">
+          <label for="personalPhone">Personal</label>
+          <input type="text" class="form-control" id="personalPhone" placeholder="Personal Phone" ng-model="profile.personal">
+        </div>
 
-      <input type="submit" ng-click="phoneUpdate(phone)" value="Save" />
+        <div class="form-group">
+          <label for="workPhone">Work</label>
+          <input type="text" class="form-control" id="workPhone" placeholder="Work Phone" ng-model="profile.work">
+        </div>
+
+        <input class="btn btn-default" type="button" ng-click="phoneUpdate(phone)" value="Save" />
 
     </form>
 
