@@ -9,7 +9,7 @@
     <div ng-if="address">
       <h4>You're registered Address</h4>
       <p>
-        <strong>Street:</strong> {{address.streetaddress }}<br/>
+        <strong>Street:</strong> {{ address.streetaddress }}<br/>
         <strong>City:</strong> {{ address.city }}<br/>
         <strong>State:</strong> {{ address.state }}<br/>
         <strong>Zip:</strong> {{ address.zip }}<br/>
@@ -33,15 +33,22 @@
   <div class="col-md-6">
 
     <div ng-if="phone">
+      <p>
+        <strong>Personal Phone:</strong> {{ phone.personal }}<br/>
+        <strong>Work Phone:</strong> {{ phone.work }}<br/>
+      </p>
+    </div>
 
+    <div ng-if="!phone">
+      <h4>You have no phone numbers registered. Would you please consider registering one?</h4>
     </div>
 
     <form novalidates class="simple-form">
 
-      Personal: <input type="text" ng-model="profile.personalPhone" /><br />
-      Work: <input type="text" ng-model="profile.workPhone" />
+      Personal: <input type="text" ng-model="phone.personal" /><br />
+      Work: <input type="text" ng-model="phone.work" />
 
-      <input type="submit" ng-click="phoneUpdate(profile)" value="Save" />
+      <input type="submit" ng-click="phoneUpdate(phone)" value="Save" />
 
     </form>
 

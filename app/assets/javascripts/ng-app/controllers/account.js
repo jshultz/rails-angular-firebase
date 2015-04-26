@@ -23,20 +23,20 @@ angular.module('AngularRails')
             } else {
               $scope.address = '';
             }
-          }); // checkIfUserExists
+          }); // getAddress
+
+          UserData.getPhone(authData).then(function(response){
+            if (response != null) {
+              $scope.phone = response;
+            } else {
+              $scope.phone = '';
+            }
+          }); // getAddress
 
 
         }
 
       });
-
-      $scope.updateAddress = function(user) {
-        $scope.master = angular.copy(user);
-      };
-
-      $scope.updatePhone = function(user) {
-        $scope.master = angular.copy(user);
-      };
 
       $scope.step1 = function() {
 
@@ -91,9 +91,9 @@ angular.module('AngularRails')
 
       $scope.phoneUpdate = function() {
 
-        address = $scope.profile;
+        phone = $scope.phone;
 
-        if ($scope.profile) {
+        if ($scope.phone) {
 
           var onComplete = function(error) {
             if (error) {
@@ -105,18 +105,14 @@ angular.module('AngularRails')
             }
           };
 
-          ref.child('address').child(currentAuth.uid).set({
+          ref.child('phone').child(currentAuth.uid).set({
 
-            "streetaddress": address.streetaddress,
-            "city": address.city,
-            "state": address.state,
-            "zip": address.zip,
+            "personal": phone.personal,
+            "work": phone.work
 
            }, onComplete);
 
-          $scope.email = '';
-
-          $scope.address = address;
+          $scope.phone = phone;
         }
       } // $scope.addressUpdate
 
