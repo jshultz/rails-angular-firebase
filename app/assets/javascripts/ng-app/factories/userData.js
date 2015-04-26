@@ -16,7 +16,6 @@
             ref.child('address').child(authData.uid).on("value", function(snapshot) {
                 if (snapshot) {
                     var address =  snapshot.val();
-                    console.log('address.streetaddress', address.streetaddress);
                     deferred.resolve(snapshot.val());
                 } else {
                     deferred.resolve(null)

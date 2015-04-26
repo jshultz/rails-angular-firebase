@@ -30,12 +30,12 @@ angular.module('AngularRails')
 
       });
 
-      $scope.update = function(user) {
+      $scope.updateAddress = function(user) {
         $scope.master = angular.copy(user);
       };
 
-      $scope.reset = function() {
-        $scope.user = angular.copy($scope.master);
+      $scope.updatePhone = function(user) {
+        $scope.master = angular.copy(user);
       };
 
       $scope.step1 = function() {
@@ -59,6 +59,37 @@ angular.module('AngularRails')
       } // $scope.step1
 
       $scope.addressUpdate = function() {
+
+        address = $scope.profile;
+
+        if ($scope.profile) {
+
+          var onComplete = function(error) {
+            if (error) {
+              console.log('Synchronization failed');
+              // $location.path('/account/step1');
+            } else {
+              console.log('Synchronization succeeded');
+              // $location.path('/');
+            }
+          };
+
+          ref.child('address').child(currentAuth.uid).set({
+
+            "streetaddress": address.streetaddress,
+            "city": address.city,
+            "state": address.state,
+            "zip": address.zip,
+
+           }, onComplete);
+
+          $scope.email = '';
+
+          $scope.address = address;
+        }
+      } // $scope.addressUpdate
+
+      $scope.phoneUpdate = function() {
 
         address = $scope.profile;
 
