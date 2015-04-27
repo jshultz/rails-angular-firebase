@@ -6,75 +6,93 @@
 
   <div class="col-md-6">
 
-    <div ng-if="address">
-      <h4>You're registered Address</h4>
-      <p>
-        <strong>Street:</strong> {{ address.streetaddress }}<br/>
-        <strong>City:</strong> {{ address.city }}<br/>
-        <strong>State:</strong> {{ address.state }}<br/>
-        <strong>Zip:</strong> {{ address.zip }}<br/>
-      </p>
-    </div>
-
-    <div ng-if="!address">
-      <h4>You're address is not registered. Would you please consider registering it?</h4>
-    </div>
-
-      <form novalidate class="simple-form">
-
-        <div class="form-group">
-          <label for="streetAddress">Street Address</label>
-          <input type="text" class="form-control" id="streetAddress" placeholder="Street Address" ng-model="profile.streetaddress">
+    <div class="row">
+      <div class="col-md-12">
+        <div ng-if="address">
+          <h4>You're registered Address</h4>
+          <p>
+            <strong>Street:</strong> {{ address.streetaddress }}<br/>
+            <strong>City:</strong> {{ address.city }}<br/>
+            <strong>State:</strong> {{ address.state }}<br/>
+            <strong>Zip:</strong> {{ address.zip }}<br/>
+          </p>
         </div>
 
-        <div class="form-group">
-          <label for="city">City</label>
-          <input type="text" class="form-control" id="city" placeholder="City" ng-model="profile.city">
+        <div ng-if="!address">
+          <h4>You're address is not registered. Would you please consider registering it?</h4>
         </div>
+      </div> <!--/cell -->
+    </div> <!-- /row -->
 
-        <div class="form-group">
-          <label for="state">State</label>
-          <input type="text" class="form-control" id="city" placeholder="State" ng-model="profile.state">
-        </div>
+    <div class="row">
+      <div class="col-md-12">
+        <form novalidate class="form-inline">
+          <fieldset>
+            <div class="form-group">
+              <label class="sr-only" for="streetAddress">Street Address</label>
+              <input type="text" class="form-control" id="streetAddress" placeholder="Street Address" ng-model="profile.streetaddress">
+            </div>
 
-        <div class="form-group">
-          <label for="zip">Zip</label>
-          <input type="text" class="form-control" id="zip" placeholder="Zip" ng-model="profile.zip">
-        </div>
+            <div class="form-group">
+              <label class="sr-only" for="city">City</label>
+              <input type="text" class="form-control" id="city" placeholder="City" ng-model="profile.city">
+            </div>
 
-        <input class="btn btn-default" type="button" ng-click="addressUpdate(profile)" value="Save" />
-      </form>
+            <div class="form-group">
+              <label class="sr-only" for="state">State</label>
+              <input type="text" class="form-control" id="city" placeholder="State" ng-model="profile.state">
+            </div>
+
+            <div class="form-group">
+              <label class="sr-only" for="zip">Zip</label>
+              <input type="text" class="form-control" id="zip" placeholder="Zip" ng-model="profile.zip">
+            </div>
+
+            <input class="btn btn-default" type="button" ng-click="addressUpdate(profile)" value="Save" />
+          </fieldset>
+        </form> <!-- /form -->
+      </div><!-- /cell -->
+    </div> <!-- /row -->
 
   </div>
 
   <div class="col-md-6">
 
-    <div ng-if="phone">
-      <p>
-        <strong>Personal Phone:</strong> {{ phone.personal }}<br/>
-        <strong>Work Phone:</strong> {{ phone.work }}<br/>
-      </p>
-    </div>
-
-    <div ng-if="!phone">
-      <h4>You have no phone numbers registered. Would you please consider registering one?</h4>
-    </div>
-
-    <form novalidates class="simple-form">
-
-        <div class="form-group">
-          <label for="personalPhone">Personal</label>
-          <input type="text" class="form-control" id="personalPhone" placeholder="Personal Phone" ng-model="profile.personal">
+    <div class="row">
+      <div class="col-md-12">
+        <div ng-if="phone">
+          <p>
+            <strong>Personal Phone:</strong> {{ phone.personal }}<br/>
+            <strong>Work Phone:</strong> {{ phone.work }}<br/>
+          </p>
         </div>
 
-        <div class="form-group">
-          <label for="workPhone">Work</label>
-          <input type="text" class="form-control" id="workPhone" placeholder="Work Phone" ng-model="profile.work">
+        <div ng-if="!phone">
+          <h4>You have no phone numbers registered. Would you please consider registering one?</h4>
         </div>
+      </div><!-- /cell -->
+    </div><!-- /row -->
 
-        <input class="btn btn-default" type="button" ng-click="phoneUpdate(phone)" value="Save" />
+    <div class="row">
+      <div class="col-md-12">
+        <form novalidates class="form-inline">
+          <fieldset>
+            <div class="form-group">
+              <label class="sr-only" for="personalPhone">Personal</label>
+              <input type="text" class="form-control" id="personalPhone" placeholder="Personal Phone" ng-model="phone.personal">
+            </div>
 
-    </form>
+            <div class="form-group">
+              <label class="sr-only" for="workPhone">Work</label>
+              <input type="text" class="form-control" id="workPhone" placeholder="Work Phone" ng-model="phone.work">
+            </div>
+
+            <input class="btn btn-default" type="button" ng-click="phoneUpdate(phone)" value="Save" />
+          </fieldset>
+
+      </form><!-- /form -->
+      </div><!-- /cell -->
+    </div><!-- /row -->
 
   </div>
 
