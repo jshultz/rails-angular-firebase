@@ -1,17 +1,20 @@
-<!-- This is the main App View. It loads the advanced filters partial and the _material directive. -->
 <div id="angularMaterial">
-<h2>Contact Page</h2>
-<div>ThePath: {{ thepath }}</div>
-<div ng-click="facebookLogin()">facebook login</div>  
 
-	<div ng-show="authData">
-		<p>Hello, {{ authData.facebook.displayName }}</p>
-		<button ng-click="auth.$unauth()">Logout</button>
-	</div>
-	<div ng-hide="authData">
-		<p>Welcome, please log in.</p>
-		<button ng-click="auth.$authWithOAuthPopup('facebook')">Login With Facebook</button>
-	</div>
-
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Contact Page</h2>
+        </div>
+        <div class="col-md-3">
+            <div ng-show="authData">
+                <p>Hello, {{ displayName }}</p>
+                <button ng-click="auth.$unauth()">Logout</button>
+            </div>
+            <div ng-hide="authData">
+                <p>Welcome, please log in.</p>
+                <button ng-click="auth.$authWithOAuthPopup('facebook')">Login With Facebook</button>
+                <button ng-click="auth.$authWithOAuthPopup('twitter')">Login With Twitter</button>
+            </div>
+        </div>
+    </div>
 
 </div>
