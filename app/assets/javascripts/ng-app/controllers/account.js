@@ -1,6 +1,6 @@
 angular.module('AngularRails')
-    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData","$q",
-        function(currentAuth, Auth, $scope, $location, $timeout, UserData, $q)  {
+    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData","$q","facebookService","$window",
+        function(currentAuth, Auth, $scope, $location, $timeout, UserData, $q, facebookService, $window)  {
 
     $scope.auth = Auth;
     $scope.email = '';
@@ -33,10 +33,18 @@ angular.module('AngularRails')
             }
           }); // getAddress
 
-
         }
 
       });
+
+      $scope.getMyLastName = function() {
+             facebookService.getMyLastName()
+               .then(function(response) {
+                 $scope.last_name = response.last_name;
+                 console.log('$scope.last_name', $scope.last_name)
+               }
+             );
+          }; // getMyLastName
 
       $scope.step1 = function() {
 

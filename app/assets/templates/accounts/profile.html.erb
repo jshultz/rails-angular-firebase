@@ -16,6 +16,7 @@
             <strong>State:</strong> {{ address.state }}<br/>
             <strong>Zip:</strong> {{ address.zip }}<br/>
           </p>
+          <p> {{ getMyLastName() }} Maybe? {{ last_name }}</p>
         </div>
 
         <div ng-if="!address">
