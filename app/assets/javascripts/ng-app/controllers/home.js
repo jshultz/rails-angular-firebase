@@ -14,7 +14,13 @@ angular.module('AngularRails')
           $scope.displayName = UserData.getName(authData);
         });
 
-
+        $scope.facebookLogin = function() {
+             Auth.userFacebookLogin()
+               .then(function(response) {
+                console.log('made it here');
+               }
+             );
+          }; // facebookLogin
 
 
     }]);

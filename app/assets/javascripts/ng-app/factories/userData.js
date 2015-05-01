@@ -8,6 +8,7 @@
 
 	    // find a suitable name based on the meta info given by each provider
 	    //
+        //
 
 	    getAddress: function(authData) {
             var deferred = $q.defer();
@@ -63,6 +64,21 @@
 			  return result.data;
 			});
 		}, // getUsers
+
+        userFacebookLogin: function() {
+
+            var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+            ref.authWithOAuthPopup("facebook", function(error, authData) {
+              if (error) {
+                console.log("Login Failed!", error);
+              } else {
+                console.log("Authenticated successfully with payload:", authData);
+              }
+            }, {
+              remember: "sessionOnly",
+              scope: "email,user_likes, user_posts"
+            });
+        }, // Facebook Login
 
 	    userExistsCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
