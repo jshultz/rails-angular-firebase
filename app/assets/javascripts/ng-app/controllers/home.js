@@ -9,18 +9,24 @@ angular.module('AngularRails')
         $scope.routename = $route.current.$$route.name;
 
         // any time auth status updates, add the user data to scope
-        $scope.auth.$onAuth(function(authData) {
-          $scope.authData = authData;
-          $scope.displayName = UserData.getName(authData);
-        });
+          $scope.auth.$onAuth(function(authData) {
+            $scope.authData = authData;
+            if (authData) {
 
-        $scope.facebookLogin = function() {
-             Auth.userFacebookLogin()
-               .then(function(response) {
-                console.log('made it here');
-               }
-             );
-          }; // facebookLogin
+              UserData.checkIfUserExists(authData).then(function(response){
+                if (response == 'created') {
+                  $timeout(function(){
+                       $location.path('/account/step1');
+                  },1); // timeout
+                } else {
+                  $timeout(function(){
+                       $location.path('/');
+                  },1); // timeout
+                }
+              }); // checkIfUserExists
+
+            }; // if authData
+          }); // $scope.oauth.$onAuth
 
 
     }]);

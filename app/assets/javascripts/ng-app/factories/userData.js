@@ -65,20 +65,20 @@
 			});
 		}, // getUsers
 
-        userFacebookLogin: function() {
+        // userFacebookLogin: function() {
 
-            var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-            ref.authWithOAuthPopup("facebook", function(error, authData) {
-              if (error) {
-                console.log("Login Failed!", error);
-              } else {
-                console.log("Authenticated successfully with payload:", authData);
-              }
-            }, {
-              remember: "sessionOnly",
-              scope: "email,user_likes, user_posts"
-            });
-        }, // Facebook Login
+        //     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+        //     ref.authWithOAuthPopup("facebook", function(error, authData) {
+        //       if (error) {
+        //         console.log("Login Failed!", error);
+        //       } else {
+        //         console.log("Authenticated successfully with payload:", authData);
+        //       }
+        //     }, {
+        //       remember: "sessionOnly",
+        //       scope: "email,user_likes, user_posts"
+        //     });
+        // }, // Facebook Login
 
 	    userExistsCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
