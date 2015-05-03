@@ -8,26 +8,5 @@ angular.module('AngularRails')
         $scope.auth = Auth;
         $scope.routename = $route.current.$$route.name;
 
-        // any time auth status updates, add the user data to scope
-          $scope.auth.$onAuth(function(authData) {
-            $scope.authData = authData;
-            if (authData) {
-              UserData.checkIfUserExists(authData).then(function(response){
-                if (response == 'created') {
-                  $timeout(function(){
-                       $location.path('/account/step1');
-                  },1); // timeout
-                } else {
-                  $timeout(function(){
-                       $location.path('/');
-                  },1); // timeout
-                }
-              }); // checkIfUserExists
-
-              $scope.displayName = UserData.getName(authData);
-
-            }; // if authData
-          }); // $scope.oauth.$onAuth
-
 
     }]);

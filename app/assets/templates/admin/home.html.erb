@@ -9,17 +9,7 @@
                 <li>Name: {{user.full_name}} | Provider: {{ user.provider }}</li>
             </ul>
         </div>
-        <div class="col-md-3">
-            <div ng-show="authData">
-                <p>Hello, {{ displayName }}</p>
-                <button ng-click="auth.$unauth()">Logout</button>
-            </div>
-            <div ng-hide="authData">
-                <p>Welcome, please log in.</p>
-                <button ng-click="auth.$authWithOAuthPopup('facebook')">Login With Facebook</button>
-                <button ng-click="auth.$authWithOAuthPopup('twitter')">Login With Twitter</button>
-            </div>
-        </div>
+        <div ng-include="'shared/sidebar_login.html'"></div>
     </div>
 
 </div>

@@ -1,5 +1,5 @@
 angular.module('AngularRails')
-    .controller('LoginCtrl', ["Auth", "$scope","$location","$timeout","UserData","$q", 
+    .controller('LoginCtrl', ["Auth", "$scope","$location","$timeout","UserData","$q",
         function(Auth, $scope, $location, $timeout, UserData, $q)  {
 
     $scope.auth = Auth;
@@ -14,15 +14,17 @@ angular.module('AngularRails')
     // any time auth status updates, add the user data to scope
       $scope.auth.$onAuth(function(authData) {
         $scope.authData = authData;
-        if (authData) {          
+        if (authData) {
+
+          $scope.displayName = UserData.getName(authData);
 
           UserData.checkIfUserExists(authData).then(function(response){
             if (response == 'created') {
-              $timeout(function(){ 
+              $timeout(function(){
                    $location.path('/account/step1');
               },1); // timeout
             } else {
-              $timeout(function(){ 
+              $timeout(function(){
                    $location.path('/');
               },1); // timeout
             }
