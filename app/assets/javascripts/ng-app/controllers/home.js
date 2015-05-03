@@ -12,7 +12,6 @@ angular.module('AngularRails')
           $scope.auth.$onAuth(function(authData) {
             $scope.authData = authData;
             if (authData) {
-
               UserData.checkIfUserExists(authData).then(function(response){
                 if (response == 'created') {
                   $timeout(function(){
@@ -24,6 +23,8 @@ angular.module('AngularRails')
                   },1); // timeout
                 }
               }); // checkIfUserExists
+
+              $scope.displayName = UserData.getName(authData);
 
             }; // if authData
           }); // $scope.oauth.$onAuth

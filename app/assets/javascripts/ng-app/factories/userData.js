@@ -8,7 +8,6 @@
 
 	    // find a suitable name based on the meta info given by each provider
 	    //
-        //
 
 	    getAddress: function(authData) {
             var deferred = $q.defer();
@@ -64,7 +63,6 @@
 			  return result.data;
 			});
 		}, // getUsers
-
         // userFacebookLogin: function() {
 
         //     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
@@ -79,7 +77,6 @@
         //       scope: "email,user_likes, user_posts"
         //     });
         // }, // Facebook Login
-
 	    userExistsCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 			if (authData) {
