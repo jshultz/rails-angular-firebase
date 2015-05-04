@@ -8,5 +8,4 @@ angular.module('AngularRails')
         $scope.auth = Auth;
         $scope.routename = $route.current.$$route.name;
 
-
     }]);

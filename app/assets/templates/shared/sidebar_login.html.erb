@@ -1,11 +1,11 @@
 <div class="col-md-3" ng-controller="LoginCtrl">
-    <div ng-show="authData">
+    <div ng-show="loggedIn">
         <p>Hello, {{ displayName }}</p>
-        <button ng-click="auth.$unauth()">Logout</button>
+        <button ng-click="logout()">Logout</button>
     </div>
-    <div ng-hide="authData">
+    <div ng-hide="loggedIn">
         <p>Welcome, please log in.</p>
-        <button ng-click="auth.$authWithOAuthPopup('facebook')">Login With Facebook</button>
-        <button ng-click="auth.$authWithOAuthPopup('twitter')">Login With Twitter</button>
+        <button ng-click="userLogin('facebook')">Login With Facebook</button>
+        <button ng-click="userLogin('twitter')">Login With Twitter</button>
     </div>
 </div>
