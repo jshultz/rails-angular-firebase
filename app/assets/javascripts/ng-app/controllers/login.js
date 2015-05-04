@@ -8,11 +8,16 @@ angular.module('AngularRails')
 
     function authDataCallback(authData) {
       if (authData) {
+        console.log('authData', authData)
         $scope.loggedIn = true;
+        $scope.displayName = UserData.getName(authData);
         console.log("User " + authData.uid + " is logged in with " + authData.provider);
+        console.log('loggedIn', $scope.loggedIn);
+        $scope.$apply()
       } else {
         $scope.loggedIn = false;
         console.log("User is logged out");
+        console.log('loggedIn', $scope.loggedIn);
       }
     }
 
@@ -23,15 +28,6 @@ angular.module('AngularRails')
     }
 
     ref.onAuth(authDataCallback);
-
-    // ref.onAuth(function(authData) {
-    //   if (authData) {
-    //     $scope.authData = authData;
-    //     // save the user's profile into Firebase so we can list users,
-    //     // use them in Security and Firebase Rules, and show profiles
-    //     $scope.displayName = UserData.getName(authData);
-    //   }
-    // });
 
     // we would probably save a profile when we register new users on our site
     // we could also read the profile to see if it's null

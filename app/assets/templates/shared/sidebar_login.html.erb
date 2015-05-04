@@ -1,9 +1,10 @@
 <div class="col-md-3" ng-controller="LoginCtrl">
-    <div ng-show="loggedIn">
+<p>Logged in? {{ loggedIn }}</p>
+    <div ng-if="loggedIn == true">
         <p>Hello, {{ displayName }}</p>
         <button ng-click="logout()">Logout</button>
     </div>
-    <div ng-hide="loggedIn">
+    <div ng-if="loggedIn == false">
         <p>Welcome, please log in.</p>
         <button ng-click="userLogin('facebook')">Login With Facebook</button>
         <button ng-click="userLogin('twitter')">Login With Twitter</button>
