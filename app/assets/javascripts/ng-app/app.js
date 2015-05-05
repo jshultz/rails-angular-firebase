@@ -2,7 +2,7 @@ angular
     .module('AngularRails',[
       'ngRoute',
       'templates',
-      'firebase'])
+      'firebase',])
     .config(function ($routeProvider, $locationProvider) {
 
         $routeProvider.when("/", {

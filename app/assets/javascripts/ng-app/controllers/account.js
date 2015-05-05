@@ -1,6 +1,6 @@
 angular.module('AngularRails')
-    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData","$q","facebookService","$window",
-        function(currentAuth, Auth, $scope, $location, $timeout, UserData, $q, facebookService, $window)  {
+    .controller('AcctCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData","$q","facebookService","$window", '$rootScope',
+        function(currentAuth, Auth, $scope, $location, $timeout, UserData, $q, facebookService, $window, $rootScope)  {
 
     $scope.auth = Auth;
     $scope.email = '';

@@ -1,7 +1,7 @@
 angular.module('AngularRails')
-    .controller('NavCtrl', ['$scope', '$http', '$location', '$rootScope', '$sce','Auth','$routeParams','$route',  
+    .controller('NavCtrl', ['$scope', '$http', '$location', '$rootScope', '$sce','Auth','$routeParams','$route',
         function($scope, $http, $location, $rootScope, $sce, Auth, $routeParams, $route)  {
-        
+
         var search = $location.search();
         var initialLoad = true;
         $scope.loaded = false;
@@ -9,6 +9,8 @@ angular.module('AngularRails')
         $scope.filters = []
         $scope.thepath = $location.path();
         $scope.routename = $route.current.$$route.name;
+
+        $scope.loggedIn = $rootScope.loggedIn;
 
         $scope.menuClass = function(page) {
             var current = $location.path().substring(1);
