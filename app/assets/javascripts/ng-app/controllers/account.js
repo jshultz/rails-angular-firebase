@@ -31,11 +31,11 @@ angular.module('AngularRails')
             } else {
               $scope.phone = '';
             }
-          }); // getAddress
+          }); // getPhone
 
         }
 
-      });
+      }); // $scope.auth.$onAuth(
 
       $scope.getMyLastName = function() {
              facebookService.getMyLastName()

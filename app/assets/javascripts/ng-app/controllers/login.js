@@ -13,12 +13,12 @@ angular.module('AngularRails')
       } else {
         $rootScope.loggedIn = false;
       }
-    }
+    } // authDataCallback
 
     $scope.logout = function() {
       ref.unauth();
       $scope.loggedIn = false;
-    }
+    } // logout
 
     ref.onAuth(authDataCallback);
 
@@ -48,7 +48,7 @@ angular.module('AngularRails')
         $scope.$apply()
 
       }
-    });
+    }); // authWithOAuthPopup
   }; // userLogin
 
 
