@@ -8,9 +8,8 @@ angular.module('AngularRails')
 
     function authDataCallback(authData) {
       if (authData) {
-        console.log('authData', authData)
         $rootScope.loggedIn = true;
-        $scope.displayName = UserData.getName(authData);
+        $rootScope.displayName = UserData.getName(authData);
       } else {
         $rootScope.loggedIn = false;
       }
@@ -18,7 +17,6 @@ angular.module('AngularRails')
 
     $scope.logout = function() {
       ref.unauth();
-      console.log('logging out?')
       $scope.loggedIn = false;
     }
 
@@ -46,7 +44,7 @@ angular.module('AngularRails')
         }); // checkIfUserExists
 
         $rootScope.loggedIn = true;
-        $scope.displayName = UserData.getName(authData);
+        $rootScope.displayName = UserData.getName(authData);
         $scope.$apply()
 
       }

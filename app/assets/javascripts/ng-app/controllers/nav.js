@@ -10,8 +10,6 @@ angular.module('AngularRails')
         $scope.thepath = $location.path();
         $scope.routename = $route.current.$$route.name;
 
-        $scope.loggedIn = $rootScope.loggedIn;
-
         $scope.menuClass = function(page) {
             var current = $location.path().substring(1);
             return page === current ? "active" : "";
