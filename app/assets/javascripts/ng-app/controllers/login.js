@@ -11,13 +11,8 @@ angular.module('AngularRails')
         console.log('authData', authData)
         $scope.loggedIn = true;
         $scope.displayName = UserData.getName(authData);
-        console.log("User " + authData.uid + " is logged in with " + authData.provider);
-        console.log('loggedIn', $scope.loggedIn);
-        $scope.$apply()
       } else {
         $scope.loggedIn = false;
-        console.log("User is logged out");
-        console.log('loggedIn', $scope.loggedIn);
       }
     }
 
@@ -40,7 +35,22 @@ angular.module('AngularRails')
       if (error) {
         console.log("Login Failed!", error);
       } else {
-        console.log("Authenticated successfully with payload:", authData);
+
+        UserData.checkIfUserExists(authData).then(function(response){
+          if (response == 'created') {
+            $timeout(function(){
+                 $location.path('/account/step1');
+            },1); // timeout
+          } else {
+            $timeout(function(){
+                 $location.path('/');
+            },1); // timeout
+          }
+        }); // checkIfUserExists
+
+        $scope.loggedIn = true;
+        $scope.displayName = UserData.getName(authData);
+        $scope.$apply()
 
       }
     });
@@ -52,18 +62,6 @@ angular.module('AngularRails')
     //   if (authData) {
 
     //     $scope.displayName = UserData.getName(authData);
-
-    //     // UserData.checkIfUserExists(authData).then(function(response){
-    //     //   if (response == 'created') {
-    //     //     $timeout(function(){
-    //     //          $location.path('/account/step1');
-    //     //     },1); // timeout
-    //     //   } else {
-    //     //     $timeout(function(){
-    //     //          $location.path('/');
-    //     //     },1); // timeout
-    //     //   }
-    //     // }); // checkIfUserExists
 
     //   }; // if authData
     // }); // $scope.oauth.$onAuth
