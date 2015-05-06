@@ -48,7 +48,9 @@ angular.module('AngularRails')
               $location.path('/account/step1');
             } else {
               console.log('Synchronization succeeded');
-              $location.path('/');
+              $timeout(function(){
+                   $location.path('/');
+              },1); // timeout
             }
           };
 
