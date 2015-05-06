@@ -8,4 +8,11 @@ angular.module('AngularRails')
         $scope.auth = Auth;
         $scope.routename = $route.current.$$route.name;
 
+        var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+        var authData = ref.getAuth();
+
+        if (authData) {
+          console.log("Authenticated user with uid:", authData.uid);
+        }
+
     }]);

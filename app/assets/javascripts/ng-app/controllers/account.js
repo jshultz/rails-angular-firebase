@@ -7,6 +7,12 @@ angular.module('AngularRails')
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
+    var authData = ref.getAuth();
+
+    if (authData) {
+      console.log("Authenticated user with uid:", authData.uid);
+    }
+
     var callback = function(){
       $scope.$apply()
     }
@@ -15,12 +21,12 @@ angular.module('AngularRails')
       $scope.auth.$onAuth(function(authData) {
       }); // $scope.auth.$onAuth(
 
-      console.log('$rootScope.authData', $rootScope.authData)
-        if ($rootScope.authData) {
-          $scope.authData = $rootScope.authData;
-          $scope.displayName = UserData.getName($rootScope.authData);
+        if (authData) {
+          $scope.authData = authData;
+          console.log('authData', authData);
+          $scope.displayName = UserData.getName(authData);
 
-          UserData.getAddress($rootScope.authData).then(function(response){
+          UserData.getAddress(authData).then(function(response){
             if (response != null) {
               $scope.address = response;
             } else {
@@ -28,7 +34,7 @@ angular.module('AngularRails')
             }
           }); // getAddress
 
-          UserData.getPhone($rootScope.authData).then(function(response){
+          UserData.getPhone(authData).then(function(response){
             if (response != null) {
               $scope.phone = response;
             } else {
@@ -63,7 +69,7 @@ angular.module('AngularRails')
             }
           };
 
-          ref.child('users').child($rootScope.authData.uid).update({ email: this.email }, onComplete);
+          ref.child('users').child(authData.uid).update({ email: this.email }, onComplete);
 
           $scope.email = '';
         }
