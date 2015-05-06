@@ -31,7 +31,7 @@ angular
             "currentAuth": ["Auth", function(Auth) {
               // $requireAuth returns a promise so the resolve waits for it to complete
               // If the promise is rejected, it will throw a $stateChangeError (see above)
-              return Auth.$requireAuth();
+              return Auth.$waitForAuth();
             }]
           }
         }).when("/account/profile", {
@@ -45,7 +45,7 @@ angular
             "currentAuth": ["Auth", function(Auth) {
               // $requireAuth returns a promise so the resolve waits for it to complete
               // If the promise is rejected, it will throw a $stateChangeError (see above)
-              return Auth.$requireAuth();
+              return Auth.$waitForAuth();
             }]
           }
         }).when("/account/step1", {
@@ -59,7 +59,7 @@ angular
             "currentAuth": ["Auth", function(Auth) {
               // $requireAuth returns a promise so the resolve waits for it to complete
               // If the promise is rejected, it will throw a $stateChangeError (see above)
-              return Auth.$requireAuth();
+              return Auth.$waitForAuth();
             }]
           }
         }).when("/admin", {
@@ -73,7 +73,7 @@ angular
             "currentAuth": ["Auth", function(Auth) {
               // $requireAuth returns a promise so the resolve waits for it to complete
               // If the promise is rejected, it will throw a $stateChangeError (see above)
-              return Auth.$requireAuth();
+              return Auth.$waitForAuth();
             }]
           }
         }).when("/contact", {

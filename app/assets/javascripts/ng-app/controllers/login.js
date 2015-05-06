@@ -34,11 +34,14 @@ angular.module('AngularRails')
         UserData.checkIfUserExists(authData).then(function(response){
           if (response == 'created') {
             $timeout(function(){
-                 $location.path('/account/step1');
+              $location.path('/account/step1');
+              console.log('authData', authData)
+              $rootScope.authData = authData;
             },1); // timeout
           } else {
             $timeout(function(){
-                 $location.path('/');
+              $rootScope.authData = authData;
+              $location.path('/');
             },1); // timeout
           }
         }); // checkIfUserExists

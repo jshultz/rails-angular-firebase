@@ -13,11 +13,14 @@ angular.module('AngularRails')
 
     // any time auth status updates, add the user data to scope
       $scope.auth.$onAuth(function(authData) {
-        $scope.authData = authData;
-        if (authData) {
-        	$scope.displayName = UserData.getName(authData);
+      }); // $scope.auth.$onAuth(
 
-          UserData.getAddress(authData).then(function(response){
+      console.log('$rootScope.authData', $rootScope.authData)
+        if ($rootScope.authData) {
+          $scope.authData = $rootScope.authData;
+          $scope.displayName = UserData.getName($rootScope.authData);
+
+          UserData.getAddress($rootScope.authData).then(function(response){
             if (response != null) {
               $scope.address = response;
             } else {
@@ -25,7 +28,7 @@ angular.module('AngularRails')
             }
           }); // getAddress
 
-          UserData.getPhone(authData).then(function(response){
+          UserData.getPhone($rootScope.authData).then(function(response){
             if (response != null) {
               $scope.phone = response;
             } else {
@@ -34,8 +37,6 @@ angular.module('AngularRails')
           }); // getPhone
 
         }
-
-      }); // $scope.auth.$onAuth(
 
       $scope.getMyLastName = function() {
              facebookService.getMyLastName()
@@ -60,7 +61,7 @@ angular.module('AngularRails')
             }
           };
 
-          ref.child('users').child(currentAuth.uid).update({ email: this.email }, onComplete);
+          ref.child('users').child($rootScope.authData.uid).update({ email: this.email }, onComplete);
 
           $scope.email = '';
         }
@@ -82,7 +83,7 @@ angular.module('AngularRails')
             }
           };
 
-          ref.child('address').child(currentAuth.uid).set({
+          ref.child('address').child($rootScope.authData.uid).set({
 
             "streetaddress": address.streetaddress,
             "city": address.city,
@@ -113,7 +114,7 @@ angular.module('AngularRails')
             }
           };
 
-          ref.child('phone').child(currentAuth.uid).set({
+          ref.child('phone').child($rootScope.authData.uid).set({
 
             "personal": phone.personal,
             "work": phone.work
