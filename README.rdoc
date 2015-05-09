@@ -4,6 +4,8 @@ The goal of this project is to provide a launching pad for projects that are usi
 
 I'll be backing up some user data into MySQL. I had originally planned on going with PostGres but decided to change course and go with MySQL instead.
 
+Fixed up the login code so it works a lot better now.
+
 Project Overview:
 
 * Rails 4.2.0.rc3
@@ -24,7 +26,7 @@ TODO:
 2. User Managment: We can list users, we now need to be able to edit users.
 3. Need to implement a process to backup user to postgres after they've been authenticated/created in firebase.
 4. Build out profile.
-5. Need to work more on consolidating functions into controllers and less code duplication.
+5. Decide whether or not to import facebook and twitter feeds or not.
 
 
 Please feel free to use a different markup language if you do not plan to run
