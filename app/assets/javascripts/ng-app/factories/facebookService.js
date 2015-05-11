@@ -21,6 +21,17 @@
                 }
             });
             return deferred.promise;
+        },
+
+        getProfilePhoto: function(authData) {
+            FB.api(
+                "/{user-id}/picture",
+                function (response) {
+                  if (response && !response.error) {
+                    /* handle the result */
+                  }
+                }
+            );
         }
 
 

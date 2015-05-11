@@ -11,6 +11,10 @@ angular.module('AngularRails')
 
     if (authData) {
       console.log("Authenticated user with uid:", authData.uid);
+    } else {
+      $timeout(function(){
+        $location.path('/');
+      },1); // timeout
     }
 
     var callback = function(){
@@ -18,120 +22,111 @@ angular.module('AngularRails')
     }
 
     // any time auth status updates, add the user data to scope
-      $scope.auth.$onAuth(function(authData) {
-      }); // $scope.auth.$onAuth(
+    $scope.auth.$onAuth(function(authData) {
+    }); // $scope.auth.$onAuth(
 
-        if (authData) {
-          $scope.authData = authData;
-          console.log('authData', authData);
-          $scope.displayName = UserData.getName(authData);
+    if (authData) {
+      $scope.authData = authData;
+      console.log('authData', authData);
+      $scope.displayName = UserData.getName(authData);
 
-          UserData.getAddress(authData).then(function(response){
-            if (response != null) {
-              $scope.address = response;
-            } else {
-              $scope.address = '';
-            }
-          }); // getAddress
-
-          UserData.getPhone(authData).then(function(response){
-            if (response != null) {
-              $scope.phone = response;
-            } else {
-              $scope.phone = '';
-            }
-          }); // getPhone
-
+      UserData.getAddress(authData).then(function(response){
+        if (response != null) {
+          $scope.address = response;
+        } else {
+          $scope.address = '';
         }
+      }); // getAddress
 
-      $scope.getMyLastName = function() {
-             facebookService.getMyLastName()
-               .then(function(response) {
-                 $scope.last_name = response.last_name;
-                 console.log('$scope.last_name', $scope.last_name)
-               }
-             );
-          }; // getMyLastName
-
-      $scope.step1 = function() {
-
-        if ($scope.email) {
-
-          var onComplete = function(error) {
-            if (error) {
-              console.log('Synchronization failed');
-              $location.path('/account/step1');
-            } else {
-              console.log('Synchronization succeeded');
-              $timeout(function(){
-                   $location.path('/');
-              },1); // timeout
-            }
-          };
-
-          ref.child('users').child(authData.uid).update({ email: this.email }, onComplete);
-
-          $scope.email = '';
+      UserData.getPhone(authData).then(function(response){
+        if (response != null) {
+          $scope.phone = response;
+        } else {
+          $scope.phone = '';
         }
-      } // $scope.step1
+      }); // getPhone
 
-      $scope.addressUpdate = function() {
+    }
 
-        address = $scope.profile;
+    $scope.step1 = function() {
 
-        if ($scope.profile) {
+      if ($scope.email) {
 
-          var onComplete = function(error) {
-            if (error) {
-              console.log('Synchronization failed');
-              // $location.path('/account/step1');
-            } else {
-              console.log('Synchronization succeeded');
-              // $location.path('/');
-            }
-          };
+        var onComplete = function(error) {
+          if (error) {
+            console.log('Synchronization failed');
+            $location.path('/account/step1');
+          } else {
+            console.log('Synchronization succeeded');
+            $timeout(function(){
+                 $location.path('/');
+            },1); // timeout
+          }
+        };
 
-          ref.child('address').child($rootScope.authData.uid).set({
+        ref.child('users').child(authData.uid).update({ email: this.email }, onComplete);
 
-            "streetaddress": address.streetaddress,
-            "city": address.city,
-            "state": address.state,
-            "zip": address.zip,
+        $scope.email = '';
+      }
+    } // $scope.step1
 
-           }, onComplete);
+    $scope.addressUpdate = function() {
 
-          $scope.email = '';
+      address = $scope.profile;
 
-          $scope.address = address;
-        }
-      } // $scope.addressUpdate
+      if ($scope.profile) {
 
-      $scope.phoneUpdate = function() {
+        var onComplete = function(error) {
+          if (error) {
+            console.log('Synchronization failed');
+            // $location.path('/account/step1');
+          } else {
+            console.log('Synchronization succeeded');
+            // $location.path('/');
+          }
+        };
 
-        phone = $scope.phone;
+        ref.child('address').child($rootScope.authData.uid).set({
 
-        if ($scope.phone) {
+          "streetaddress": address.streetaddress,
+          "city": address.city,
+          "state": address.state,
+          "zip": address.zip,
 
-          var onComplete = function(error) {
-            if (error) {
-              console.log('Synchronization failed');
-              // $location.path('/account/step1');
-            } else {
-              console.log('Synchronization succeeded');
-              // $location.path('/');
-            }
-          };
+         }, onComplete);
 
-          ref.child('phone').child($rootScope.authData.uid).set({
+        $scope.email = '';
 
-            "personal": phone.personal,
-            "work": phone.work
+        $scope.address = address;
+      }
+    } // $scope.addressUpdate
 
-           }, onComplete);
+    $scope.phoneUpdate = function() {
 
-          $scope.phone = phone;
-        }
-      } // $scope.addressUpdate
+      phone = $scope.phone;
+
+      if ($scope.phone) {
+
+        var onComplete = function(error) {
+          if (error) {
+            console.log('Synchronization failed');
+            // $location.path('/account/step1');
+          } else {
+            console.log('Synchronization succeeded');
+            // $location.path('/');
+          }
+        };
+
+        ref.child('phone').child($rootScope.authData.uid).set({
+
+          "personal": phone.personal,
+          "work": phone.work
+
+         }, onComplete);
+
+        $scope.phone = phone;
+      }
+    } // $scope.addressUpdate
 
 
 }]);
