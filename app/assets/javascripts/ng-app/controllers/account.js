@@ -27,7 +27,6 @@ angular.module('AngularRails')
 
     if (authData) {
       $scope.authData = authData;
-      console.log('authData', authData);
       $scope.displayName = UserData.getName(authData);
 
       UserData.getAddress(authData).then(function(response){

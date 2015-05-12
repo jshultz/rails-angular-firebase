@@ -55,6 +55,22 @@
             return deferred.promise;
 
         },
+        getProfilePhoto: function(authData) {
+            var deferred = $q.defer();
+            // Attach an asynchronous callback to read the data at our posts reference
+            var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+            ref.child('users').child(authData.uid).on("value", function(snapshot) {
+                if (snapshot) {
+                    var phone =  snapshot.val();
+                    deferred.resolve(snapshot.val());
+                } else {
+                    deferred.resolve(null)
+                }
+            });
+
+            return deferred.promise;
+
+        }, // getName
 
 	    getUsers: function(params) {
 			return $http.get('https://rails-angular-fireba.firebaseio.com/users.json', {
