@@ -3,7 +3,12 @@
     <div class="row" >
         <div class="col-md-9">
             <h2>Home Page</h2>
-            <p>Hello, {{ displayName }}</p>
+            <div ng-if="loggedIn == true">
+                <p>Hello, {{ displayName }}</p>
+            </div>
+            <div  ng-if="loggedIn == false">
+                <p>Please login from the side bar</p>
+            </div>
         </div>
         <div ng-include="'shared/sidebar_login.html'"></div>
     </div>
