@@ -14,7 +14,7 @@ Project Overview:
 
 * jQuery v1.8.3
 
-* I'm using Postgres and Firebase.
+* I'm using MySQL and Firebase.
 
 * Firebase for Authentication and some user storage.
 
@@ -24,9 +24,9 @@ TODO:
 
 1. Add security features. [sort of done]
 2. User Managment: We can list users, we now need to be able to edit users.
-3. Need to implement a process to backup user to postgres after they've been authenticated/created in firebase.
+3. Need to implement a process to backup user to MySQL after they've been authenticated/created in firebase.
 4. Build out profile.
-5. Decide whether or not to import facebook and twitter feeds or not.
+5. Need to add user levels or a root user of some sort. I'm thinking user levels.
 
 
 Please feel free to use a different markup language if you do not plan to run
