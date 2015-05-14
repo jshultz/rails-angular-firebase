@@ -62,7 +62,7 @@ angular.module('AngularRails')
             $rootScope.authData = authData;
             authDataCallback
 
-        }
+        } // if user existed or was created
       }); // checkIfUserExists
     }
 

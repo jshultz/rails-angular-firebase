@@ -79,29 +79,32 @@
 			  return result.data;
 			});
 		}, // getUsers
-        // userFacebookLogin: function() {
-
-        //     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-        //     ref.authWithOAuthPopup("facebook", function(error, authData) {
-        //       if (error) {
-        //         console.log("Login Failed!", error);
-        //       } else {
-        //         console.log("Authenticated successfully with payload:", authData);
-        //       }
-        //     }, {
-        //       remember: "sessionOnly",
-        //       scope: "email,user_likes, user_posts"
-        //     });
-        // }, // Facebook Login
 	    userExistsCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 			if (authData) {
+
+                ref.child('users').once('value', function(snapshot) {
+                   if (snapshot.val() === null) { // there are no users
+                    ref.child("users").child(authData.uid).set({
+                        provider: authData.provider,
+                        full_name: factory.getName(authData),
+                        user_level: 1
+                    });
+                    console.log('no users')
+                       /* There is no user 'Fred'! */
+                   } else { // there are users
+                    ref.child("users").child(authData.uid).set({
+                        provider: authData.provider,
+                        full_name: factory.getName(authData),
+                        user_level: 10
+                    });
+                        console.log('there are users')
+                       /* User 'Fred' exists. */
+                   }
+                });
 			  // save the user's profile into Firebase so we can list users,
 			  // use them in Security and Firebase Rules, and show profiles
-			  ref.child("users").child(authData.uid).set({
-			    provider: authData.provider,
-			    full_name: factory.getName(authData),
-			  });
+
 			  return true
 		    }
 		}, // userExistsCallback
