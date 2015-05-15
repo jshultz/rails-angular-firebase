@@ -26,7 +26,7 @@ TODO:
 2. User Managment: We can list users, we now need to be able to edit users.
 3. Need to implement a process to backup user to MySQL after they've been authenticated/created in firebase.
 4. Build out profile.
-5. Need to add user levels or a root user of some sort. I'm thinking user levels.
+5. Still need to add user levels or a root user of some sort. I'm thinking user levels.
 
 
 Please feel free to use a different markup language if you do not plan to run
