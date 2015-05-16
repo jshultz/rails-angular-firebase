@@ -79,7 +79,7 @@
 			  return result.data;
 			});
 		}, // getUsers
-	    userExistsCallback: function(authData) {
+	    userCreateCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 			if (authData) {
 
@@ -88,24 +88,27 @@
                     var child = snapshot.hasChildren()
 
                     if (child == false) {
-
-                        ref.child("users").child(authData.uid).set({
-                        provider: authData.provider,
-                        full_name: factory.getName(authData),
-                        user_level: 1
-                    });
-
+                        var user_level = 1
                         console.log('no users')
-
                     } else {
-                        ref.child("users").child(authData.uid).set({
-                        provider: authData.provider,
-                        full_name: factory.getName(authData),
-                        user_level: 10
-                    });
-
+                        var user_level = 10;
                         console.log('there are users')
                     }
+
+                    if (authData.provider == 'facebook') {
+                      var profile_photo = 'http://graph.facebook.com/' + authData.facebook.id + '/picture?type=large';
+                    } // get Facebook profile photo
+
+                    if (authData.provider == 'twitter') {
+                      var profile_photo = 'https://pbs.twimg.com/profile_images/3708700436/e1c3eb29a6a370605e4b8ed31d85d07b_normal.jpeg';
+                    } // get Twitter profile photo
+
+                        ref.child("users").child(authData.uid).set({
+                            provider: authData.provider,
+                            full_name: factory.getName(authData),
+                            user_level: user_level,
+                            photo: profile_photo
+                        });
 
                 });
 			  // save the user's profile into Firebase so we can list users,
@@ -113,7 +116,7 @@
 
 			  return true
 		    }
-		}, // userExistsCallback
+		}, // userCreateCallback
 
 	    // Tests to see if /users/<userId> has any data.
 	    checkIfUserExists: function(authData) {
@@ -124,9 +127,11 @@
 				var exists = (snapshot.val() !== null);
 
 				if (!exists) {
-					factory.userExistsCallback(authData);
+                    console.log('created')
+					factory.userCreateCallback(authData);
 					deferred.resolve('created')
 				} else {
+                    console.log('existed')
 					deferred.resolve('existed')
 				}
 			});

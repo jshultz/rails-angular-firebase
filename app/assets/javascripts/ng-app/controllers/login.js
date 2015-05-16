@@ -44,14 +44,6 @@ angular.module('AngularRails')
             }
           }; // after
 
-          if (authData.provider == 'facebook') {
-            ref.child('users').child(authData.uid).update({ photo: 'http://graph.facebook.com/' + authData.facebook.id + '/picture?type=large' }, onComplete);
-          } // get Facebook profile photo
-
-          if (authData.provider == 'twitter') {
-            ref.child('users').child(authData.uid).update({ photo: 'https://pbs.twimg.com/profile_images/3708700436/e1c3eb29a6a370605e4b8ed31d85d07b_normal.jpeg'}, onComplete)
-          } // get Twitter profile photo
-
           $timeout(function(){
             $location.path('/account/step1');
             $rootScope.authData = authData;
