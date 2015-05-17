@@ -7,19 +7,31 @@ angular.module('AngularRails')
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
-    // any time auth status updates, add the user data to scope
-      $scope.auth.$onAuth(function(authData) {
-        $scope.authData = authData;
-        if (authData) {
-        	$scope.displayName = UserData.getName(authData);
+    var authData = ref.getAuth();
 
-          UserData.getUsers().then(function(data) {
-            $scope.users = data;
-          });
+    // any time auth status updates, add the user data to scope
+    $scope.auth.$onAuth(function(authData) {
+    });
+
+    if (authData) {
+      $scope.authData = authData;
+      $scope.displayName = UserData.getName(authData);
+
+      UserData.getAccessLevel(authData).then(function(response) {
+
+        var user_level = response;
+
+        if (user_level !== 1) {
+
+          $timeout(function(){
+               $location.path('/');
+          },1); // timeout
 
         }
 
-      });
+      }) // getAccessLevel
+
+    } // if authData
 
 
 
