@@ -11,6 +11,7 @@ angular.module('AngularRails')
 
     if (authData) {
       console.log("Authenticated user with uid:", authData.uid);
+      $rootScope.authData = authData;
     } else {
       $timeout(function(){
         $location.path('/');

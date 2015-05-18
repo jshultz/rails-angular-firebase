@@ -6,7 +6,7 @@
             <h2>Admin Page</h2>
             <p>List Users</p>
 
-            <ul ng-repeat="user in users">
+            <ul ng-model="userList" ng-repeat="user in userList">
                 <li>Name: {{user.full_name}} | Provider: {{ user.provider }}</li>
             </ul>
         </div>
