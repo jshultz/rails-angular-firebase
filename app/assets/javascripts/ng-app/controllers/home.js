@@ -1,6 +1,6 @@
 angular.module('AngularRails')
-    .controller('HomeCtrl', ['$scope', '$http', '$location', '$rootScope', '$timeout', '$window', '$q', '$sce', '$sce','Auth', '$routeParams', '$route','UserData',
-        function($scope, $http, $location, $rootScope, $timeout, $window, $q, $sce, $sce, Auth, $routeParams, $route, UserData)  {
+    .controller('HomeCtrl', ['$scope', '$http', '$location', '$rootScope', '$timeout', '$window', '$q', '$sce', '$sce','Auth', '$route','UserData',
+        function($scope, $http, $location, $rootScope, $timeout, $window, $q, $sce, $sce, Auth, $route, UserData)  {
 
         var search = $location.search();
         var initialLoad = true;

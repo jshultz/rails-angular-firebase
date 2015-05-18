@@ -1,0 +1,16 @@
+<!-- This is the main Account View. -->
+<div id="angularMaterial">
+
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Admin Page</h2>
+            <p>List Users</p>
+
+            <ul ng-repeat="user in users">
+                <li>Name: {{user.full_name}} | Provider: {{ user.provider }}</li>
+            </ul>
+        </div>
+        <div ng-include="'shared/sidebar_login.html'"></div>
+    </div>
+
+</div>

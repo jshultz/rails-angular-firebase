@@ -1,6 +1,6 @@
 angular.module('AngularRails')
-    .controller('AdminCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData",
-        function(currentAuth, Auth, $scope, $location, $timeout, UserData)  {
+    .controller('AdminCtrl', ["currentAuth", "Auth", "$scope","$location","$timeout","UserData","$routeParams",
+        function(currentAuth, Auth, $scope, $location, $timeout, UserData, $routeParams)  {
 
     $scope.auth = Auth;
     $scope.email = '';
@@ -13,11 +13,15 @@ angular.module('AngularRails')
     $scope.auth.$onAuth(function(authData) {
     });
 
+
+
     if (authData) {
       $scope.authData = authData;
       $scope.displayName = UserData.getName(authData);
 
       UserData.getAccessLevel(authData).then(function(response) {
+
+        console.log('$location', $location.path())
 
         var user_level = response;
 
