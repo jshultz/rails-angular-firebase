@@ -14,7 +14,6 @@ angular.module('AngularRails')
     });
 
 
-
     if (authData) {
       $scope.authData = authData;
       $scope.displayName = UserData.getName(authData);
@@ -23,8 +22,6 @@ angular.module('AngularRails')
       var path = $location.path();
 
       UserData.getAccessLevel(authData).then(function(response) {
-
-        console.log('$location', $location.path())
 
         var user_level = response;
 
@@ -44,7 +41,11 @@ angular.module('AngularRails')
 
       }) // getAccessLevel
 
-    } // if authData
+    } else {
+      $timeout(function(){
+           $location.path('/');
+      },1); // timeout
+    }// if authData
 
 
 

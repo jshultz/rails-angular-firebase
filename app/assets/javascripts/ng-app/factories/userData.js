@@ -6,8 +6,27 @@
 
   	var factory = {
 
-	    // find a suitable name based on the meta info given by each provider
-	    //
+	    createGroup: function(group) {
+
+        var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+
+        if (group == 'first') {
+          userid = factory.guid();
+
+          ref.child('groups').child(userid).set({
+            name: 'admin'
+          })
+        } else {
+
+          userid = factory.guid();
+
+          ref.child('groups').child(userid).set({
+            name: group
+          })
+
+        }
+
+      }, // createGroup
 
       getAccessLevel: function(authData) {
         var deferred = $q.defer();
@@ -96,6 +115,16 @@
   			  return result.data;
   			});
   		}, // getUsers
+      guid: function() {
+        function s4() {
+          return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+          s4() + '-' + s4() + s4() + s4();
+
+      },
 	    userCreateCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
   			if (authData) {
@@ -105,6 +134,7 @@
                       var child = snapshot.hasChildren()
 
                       if (child == false) {
+                          factory.createGroup('first')
                           var user_level = 1
                           console.log('no users')
                       } else {
