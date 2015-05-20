@@ -11,20 +11,29 @@
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
         if (group == 'first') {
-          userid = factory.guid();
+          var userid = factory.guid();
 
           ref.child('groups').child(userid).set({
             name: 'admin'
           })
+
+          var guid = factory.guid();
+
+          ref.child('groups').child(guid).set({
+            name: 'users'
+          })
+
         } else {
 
-          userid = factory.guid();
+          var userid = factory.guid();
 
           ref.child('groups').child(userid).set({
             name: group
           })
 
         }
+
+        return userid;
 
       }, // createGroup
 
@@ -61,7 +70,8 @@
             return deferred.promise;
 
 	    }, // getAddress
-	    getName: function(authData) {
+
+      getName: function(authData) {
 	    	if (authData) {
 	    	switch(authData.provider) {
 				case 'password':
@@ -91,6 +101,7 @@
           return deferred.promise;
 
       }, // getPhone
+
       getProfilePhoto: function(authData) {
           var deferred = $q.defer();
           // Attach an asynchronous callback to read the data at our posts reference
@@ -115,6 +126,7 @@
   			  return result.data;
   			});
   		}, // getUsers
+
       guid: function() {
         function s4() {
           return Math.floor((1 + Math.random()) * 0x10000)
@@ -124,7 +136,8 @@
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
           s4() + '-' + s4() + s4() + s4();
 
-      },
+      }, // createa a pseudo GUID
+
 	    userCreateCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
   			if (authData) {
@@ -134,7 +147,7 @@
                       var child = snapshot.hasChildren()
 
                       if (child == false) {
-                          factory.createGroup('first')
+                          var group_id = factory.createGroup('first')
                           var user_level = 1
                           console.log('no users')
                       } else {
@@ -151,6 +164,7 @@
                       } // get Twitter profile photo
 
                           ref.child("users").child(authData.uid).set({
+                              group: group_id,
                               provider: authData.provider,
                               full_name: factory.getName(authData),
                               user_level: user_level,
