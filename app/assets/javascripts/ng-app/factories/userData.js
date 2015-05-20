@@ -151,16 +151,17 @@
                           var user_level = 1
                           console.log('no users')
                       } else {
+                        var group_id = null;
                           var user_level = 10;
                           console.log('there are users')
                       }
 
                       if (authData.provider == 'facebook') {
-                        var profile_photo = 'http://graph.facebook.com/' + authData.facebook.id + '/picture?type=large';
+                        var profile_photo = authData.facebook.cachedUserProfile.picture.data.url;
                       } // get Facebook profile photo
 
                       if (authData.provider == 'twitter') {
-                        var profile_photo = 'https://pbs.twimg.com/profile_images/3708700436/e1c3eb29a6a370605e4b8ed31d85d07b_normal.jpeg';
+                        var profile_photo = authData.twitter.cachedUserProfile.profile_image_url_https;
                       } // get Twitter profile photo
 
                           ref.child("users").child(authData.uid).set({
