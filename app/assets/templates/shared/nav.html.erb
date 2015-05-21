@@ -25,10 +25,17 @@
             <li ng-hide="loggedIn"><a href="/login">Login / Create Account</a></li>
           </ul>
         </li>
+        <li ng-show="admin" ng-class="menuClass('admin')" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li ng-show="admin"><a href="/admin">Admin</a></li>
+            <li ng-show="admin"><a href="/admin/users">View / Edit Users</a></li>
+          </ul>
+        </li>
+
       </ul>
 
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-

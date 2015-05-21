@@ -18,6 +18,13 @@ angular.module('AngularRails')
             $scope.phone = '';
           }
         }); // getPhone
+        UserData.getAccessLevel(authData).then(function(response) {
+          if ( response == 1) {
+            $rootScope.admin = true;
+          } else {
+            $rootScope.admin = false;
+          }
+        });
       } else {
         $rootScope.loggedIn = false;
         $rootScope.displayName = ''

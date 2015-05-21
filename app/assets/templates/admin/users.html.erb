@@ -7,7 +7,7 @@
             <p>List Users</p>
 
             <ul ng-model="userList" ng-repeat="user in userList">
-                <li>Name: {{user.full_name}} | Provider: {{ user.provider }}</li>
+                <li><img width="75" src="{{ user.photo }}">  Name: {{ user.full_name }} | Provider: {{ user.provider }}</li>
             </ul>
         </div>
         <div ng-include="'shared/sidebar_login.html'"></div>
