@@ -76,6 +76,20 @@ angular
               return Auth.$waitForAuth();
             }]
           }
+        }).when("/admin/groups", {
+          // the rest is the same for ui-router and ngRoute...
+          name: "admin_groups",
+          controller: "AdminCtrl",
+          templateUrl: "admin/groups.html",
+          resolve: {
+            // controller will not be loaded until $requireAuth resolves
+            // Auth refers to our $firebaseAuth wrapper in the example above
+            "currentAuth": ["Auth", function(Auth) {
+              // $requireAuth returns a promise so the resolve waits for it to complete
+              // If the promise is rejected, it will throw a $stateChangeError (see above)
+              return Auth.$waitForAuth();
+            }]
+          }
         }).when("/admin/users", {
           // the rest is the same for ui-router and ngRoute...
           name: "admin_users",

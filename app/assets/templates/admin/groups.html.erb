@@ -1,0 +1,38 @@
+<!-- This is the main Account View. -->
+<div id="angularMaterial">
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+              <div class="col-mid-12">
+                <h2>Admin Page</h2>
+                <p>Groups</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-mid-12">
+                <form novalidate class="simple-form">
+                  <div class="form-group">
+                    <label for="name">Group Name</label>
+                    <input type="text" class="form-control" ng-model="group.name" />
+                  </div>
+
+                  <input type="button" class="btn btn-default" ng-click="reset()" value="Reset" />
+                  <input type="submit" class="btn btn-default" ng-click="update(group)" value="Save" />
+                </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-mid-12">
+                <ul ng-model="userList" ng-repeat="user in userList">
+                    <li><img width="75" src="{{ user.photo }}">  Name: {{ user.full_name }} | Provider: {{ user.provider }}</li>
+                </ul>
+              </div>
+            </div>
+
+
+        </div>
+        <div ng-include="'shared/sidebar_login.html'"></div>
+    </div>
+
+</div>
