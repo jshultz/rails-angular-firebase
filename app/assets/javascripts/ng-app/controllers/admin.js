@@ -13,6 +13,10 @@ angular.module('AngularRails')
     $scope.auth.$onAuth(function(authData) {
     });
 
+    UserData.getGroupList().then( function(response){
+      $scope.groupList = response;
+    })
+
 
     if (authData) {
       $scope.authData = authData;
@@ -20,6 +24,28 @@ angular.module('AngularRails')
       $rootScope.authData = authData;
 
       var path = $location.path();
+
+      $scope.updateGroup = function(group) {
+
+        if (group) {
+
+          var onComplete = function(error) {
+            if (error) {
+              console.log('Synchronization failed' + error);
+            } else {
+              console.log('Synchronization succeeded');
+            }
+          }; // onComplete
+
+          var guid = UserData.createGUID();
+
+          UserData.createGroup(group.name).then(function(response) {
+            $scope.groupList = response;
+          });
+
+        } // if group
+
+      } // updateGroup
 
       UserData.getAccessLevel(authData).then(function(response) {
 

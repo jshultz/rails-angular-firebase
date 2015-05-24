@@ -18,14 +18,14 @@
                   </div>
 
                   <input type="button" class="btn btn-default" ng-click="reset()" value="Reset" />
-                  <input type="submit" class="btn btn-default" ng-click="update(group)" value="Save" />
+                  <input type="submit" class="btn btn-default" ng-click="updateGroup(group)" value="Save" />
                 </form>
               </div>
             </div>
             <div class="row">
               <div class="col-mid-12">
-                <ul ng-model="userList" ng-repeat="user in userList">
-                    <li><img width="75" src="{{ user.photo }}">  Name: {{ user.full_name }} | Provider: {{ user.provider }}</li>
+                <ul ng-model="groupList" ng-repeat="group in groupList">
+                    <li>Name: {{ group.name }}</li>
                 </ul>
               </div>
             </div>

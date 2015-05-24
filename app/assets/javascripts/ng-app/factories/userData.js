@@ -11,25 +11,24 @@
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
         if (group == 'first') {
-          var userid = factory.guid();
-
+          var userid = factory.createGUID();
           ref.child('groups').child(userid).set({
             name: 'admin'
           })
 
-          var guid = factory.guid();
-
+          var guid = factory.createGUID();
           ref.child('groups').child(guid).set({
             name: 'users'
           })
 
         } else {
 
-          var userid = factory.guid();
-
+          var userid = factory.createGUID();
           ref.child('groups').child(userid).set({
             name: group
           })
+
+          return factory.getGroupList();
 
         }
 
@@ -70,6 +69,23 @@
             return deferred.promise;
 
 	    }, // getAddress
+
+      getGroupList: function() {
+
+        var deferred = $q.defer();
+        // Attach an asynchronous callback to read the data at our posts reference
+        var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+        ref.child('groups').on("value", function(snapshot) {
+            if (snapshot) {
+                deferred.resolve(snapshot.val());
+            } else {
+                deferred.resolve(null)
+            }
+        });
+
+        return deferred.promise;
+
+      }, // getGroupList
 
       getName: function(authData) {
 	    	if (authData) {
@@ -127,7 +143,7 @@
   			});
   		}, // getUsers
 
-      guid: function() {
+      createGUID: function() {
         function s4() {
           return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
@@ -136,7 +152,7 @@
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
           s4() + '-' + s4() + s4() + s4();
 
-      }, // createa a pseudo GUID
+      }, // createa a pseudo createGUID
 
 	    userCreateCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
