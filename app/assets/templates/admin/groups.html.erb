@@ -25,7 +25,18 @@
             <div class="row">
               <div class="col-mid-12">
                 <ul ng-model="groupList" ng-repeat="group in groupList">
-                    <li>Name: {{ group.name }}</li>
+                    <li> {{ group.id }}
+                      <form novalidate class="form-inline">
+                        <input type="hidden" name="group.id" value="{{ group.id }}" ng-model="group.id">
+                        <div class="form-group">
+                          <label class="sr-only" for="groupName">Name</label>
+                          <div class="input-group">
+                            <input type="text" name="group.name" class="form-control" placeholder="{{ group.name }}" value="{{ group.name }}" ng-model="group.name">
+                          </div>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Update Group Name" ng-click="updateGroup(group)">
+                      </form>
+                    </li>
                 </ul>
               </div>
             </div>

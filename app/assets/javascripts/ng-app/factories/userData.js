@@ -7,34 +7,45 @@
   	var factory = {
 
 	    createGroup: function(group) {
-
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-
         if (group == 'first') {
-          var userid = factory.createGUID();
-          ref.child('groups').child(userid).set({
-            name: 'admin'
-          })
-
           var guid = factory.createGUID();
           ref.child('groups').child(guid).set({
+            id: guid,
+            name: 'admin'
+          })
+          var guid = factory.createGUID();
+          ref.child('groups').child(guid).set({
+            id: guid,
             name: 'users'
           })
-
         } else {
-
-          var userid = factory.createGUID();
-          ref.child('groups').child(userid).set({
-            name: group
-          })
-
+          if (group.id) {
+            ref.child('groups').child(group.id).set({
+              id: group.id,
+              name: group.name
+            })
+          } else {
+            var guid = factory.createGUID();
+            ref.child('groups').child(guid).set({
+              id: guid,
+              name: group
+            })
+          }
           return factory.getGroupList();
-
         }
-
-        return userid;
-
+        return guid;
       }, // createGroup
+
+      createGUID: function() {
+        function s4() {
+          return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+          s4() + '-' + s4() + s4() + s4();
+      }, // createa a pseudo createGUID
 
       getAccessLevel: function(authData) {
         var deferred = $q.defer();
@@ -47,10 +58,7 @@
                 deferred.resolve(null)
             }
         });
-
         return deferred.promise;
-
-
       }, // getAccessLevel
 
 	    getAddress: function(authData) {
@@ -65,13 +73,10 @@
                     deferred.resolve(null)
                 }
             });
-
             return deferred.promise;
-
 	    }, // getAddress
 
       getGroupList: function() {
-
         var deferred = $q.defer();
         // Attach an asynchronous callback to read the data at our posts reference
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
@@ -82,23 +87,20 @@
                 deferred.resolve(null)
             }
         });
-
         return deferred.promise;
-
       }, // getGroupList
 
       getName: function(authData) {
 	    	if (authData) {
-	    	switch(authData.provider) {
-				case 'password':
-				  return authData.password.email.replace(/@.*/, '');
-				case 'twitter':
-				  return authData.twitter.displayName;
-				case 'facebook':
-				  return authData.facebook.displayName;
-				}
+  	    	switch(authData.provider) {
+  				case 'password':
+  				  return authData.password.email.replace(/@.*/, '');
+  				case 'twitter':
+  				  return authData.twitter.displayName;
+  				case 'facebook':
+  				  return authData.facebook.displayName;
+  				}
 	    	}
-
 	    }, // getName
 
       getPhone: function(authData) {
@@ -113,9 +115,7 @@
                   deferred.resolve(null)
               }
           });
-
           return deferred.promise;
-
       }, // getPhone
 
       getProfilePhoto: function(authData) {
@@ -130,9 +130,7 @@
                   deferred.resolve(null)
               }
           });
-
           return deferred.promise;
-
       }, // getProfilePhoto
 
 	    getUsers: function(params) {
@@ -143,25 +141,11 @@
   			});
   		}, // getUsers
 
-      createGUID: function() {
-        function s4() {
-          return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-        }
-        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-          s4() + '-' + s4() + s4() + s4();
-
-      }, // createa a pseudo createGUID
-
 	    userCreateCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
   			if (authData) {
-
                   ref.child('users').once('value', function(snapshot) {
-
                       var child = snapshot.hasChildren()
-
                       if (child == false) {
                           var group_id = factory.createGroup('first')
                           var user_level = 1
@@ -171,7 +155,6 @@
                           var user_level = 10;
                           console.log('there are users')
                       }
-
                       if (authData.provider == 'facebook') {
                         var profile_photo = authData.facebook.cachedUserProfile.picture.data.url;
                       } // get Facebook profile photo
@@ -187,11 +170,9 @@
                               user_level: user_level,
                               photo: profile_photo
                           });
-
                   });
   			  // save the user's profile into Firebase so we can list users,
   			  // use them in Security and Firebase Rules, and show profiles
-
   			  return true
   		    }
   		}, // userCreateCallback
@@ -203,7 +184,6 @@
   			var usersRef = new Firebase(USERS_LOCATION);
   			usersRef.child(authData.uid).once('value', function(snapshot) {
   				var exists = (snapshot.val() !== null);
-
   				if (!exists) {
                       console.log('created')
   					factory.userCreateCallback(authData);
@@ -213,12 +193,9 @@
   					deferred.resolve('existed')
   				}
   			});
-
   			return deferred.promise;
       } // checkIfUserExists
-
   	}
-
   	return factory;
 
   }]);

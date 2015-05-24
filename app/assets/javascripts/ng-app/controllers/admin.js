@@ -6,7 +6,6 @@ angular.module('AngularRails')
     $scope.email = '';
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-
     var authData = ref.getAuth();
 
     // any time auth status updates, add the user data to scope
@@ -17,18 +16,13 @@ angular.module('AngularRails')
       $scope.groupList = response;
     })
 
-
     if (authData) {
       $scope.authData = authData;
       $scope.displayName = UserData.getName(authData);
       $rootScope.authData = authData;
-
       var path = $location.path();
-
       $scope.updateGroup = function(group) {
-
         if (group) {
-
           var onComplete = function(error) {
             if (error) {
               console.log('Synchronization failed' + error);
@@ -38,41 +32,34 @@ angular.module('AngularRails')
           }; // onComplete
 
           var guid = UserData.createGUID();
-
-          UserData.createGroup(group.name).then(function(response) {
-            $scope.groupList = response;
-          });
-
+          if (group.id) {
+            UserData.createGroup(group).then(function(response) {
+              $scope.groupList = response;
+            })
+          } else {
+            UserData.createGroup(group.name).then(function(response) {
+              $scope.groupList = response;
+            });
+          }
         } // if group
-
       } // updateGroup
 
       UserData.getAccessLevel(authData).then(function(response) {
-
         var user_level = response;
-
         if (user_level !== 1) { // are you an admin?
-
           $timeout(function(){
                $location.path('/');
           },1); // timeout
-
         }
-
         if (user_level == 1 && path == '/admin/users') { // is this the users page?
           AdminFactory.getUserList(authData).then(function(response) {
             $scope.userList = response;
           })
         }
-
       }) // getAccessLevel
-
     } else {
       $timeout(function(){
            $location.path('/');
       },1); // timeout
     }// if authData
-
-
-
 }]);
