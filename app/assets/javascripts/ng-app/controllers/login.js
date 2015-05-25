@@ -56,11 +56,9 @@ angular.module('AngularRails')
             $rootScope.authData = authData;
           },1); // redirect to step1
         } else { // user already existed
-
             console.log('in here');
             $rootScope.authData = authData;
             authDataCallback
-
         } // if user existed or was created
       }); // checkIfUserExists
     }
@@ -73,11 +71,9 @@ angular.module('AngularRails')
           console.log("Login Failed!", error);
         } else {
           userExistsCheck(authData);
-
           $rootScope.loggedIn = true;
           $rootScope.displayName = UserData.getName(authData);
           $scope.$apply()
-
         }
       }); // authWithOAuthPopup
     }
@@ -88,13 +84,10 @@ angular.module('AngularRails')
           console.log("Login Failed!", error);
         } else {
           userExistsCheck(authData);
-
           $rootScope.loggedIn = true;
           $rootScope.displayName = UserData.getName(authData);
           $scope.$apply()
-
         }
-
       })
     }
 

@@ -6,9 +6,7 @@ angular.module('AngularRails')
     $scope.email = '';
 
     var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-
     var authData = ref.getAuth();
-
     if (authData) {
       console.log("Authenticated user with uid:", authData.uid);
       $rootScope.authData = authData;
@@ -51,7 +49,6 @@ angular.module('AngularRails')
     $scope.step1 = function() {
 
       if ($scope.email) {
-
         var onComplete = function(error) {
           if (error) {
             console.log('Synchronization failed');
@@ -65,7 +62,6 @@ angular.module('AngularRails')
         };
 
         ref.child('users').child(authData.uid).update({ email: this.email }, onComplete);
-
         $scope.email = '';
       }
     } // $scope.step1
@@ -75,7 +71,6 @@ angular.module('AngularRails')
       address = $scope.profile;
 
       if ($scope.profile) {
-
         var onComplete = function(error) {
           if (error) {
             console.log('Synchronization failed' + error);
@@ -85,16 +80,12 @@ angular.module('AngularRails')
         };
 
         ref.child('address').child($rootScope.authData.uid).set({
-
           "streetaddress": address.streetaddress,
           "city": address.city,
           "state": address.state,
           "zip": address.zip,
-
          }, onComplete);
-
         $scope.email = '';
-
         $scope.address = address;
       }
     } // $scope.addressUpdate
@@ -104,7 +95,6 @@ angular.module('AngularRails')
       phone = $scope.phone;
 
       if ($scope.phone) {
-
         var onComplete = function(error) {
           if (error) {
             console.log('Synchronization failed');
@@ -116,12 +106,9 @@ angular.module('AngularRails')
         };
 
         ref.child('phone').child($rootScope.authData.uid).set({
-
           "personal": phone.personal,
           "work": phone.work
-
          }, onComplete);
-
         $scope.phone = phone;
       }
     } // $scope.addressUpdate

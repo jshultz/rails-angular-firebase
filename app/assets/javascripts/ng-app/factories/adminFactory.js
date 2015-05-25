@@ -23,7 +23,6 @@
 
         return deferred.promise;
 
-
       }, // getAccessLevel
 
       getUserList: function(params) {

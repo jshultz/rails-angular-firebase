@@ -7,7 +7,6 @@ angular.module('AngularRails')
         $scope.thepath = $location.path();
         $scope.auth = Auth;
         $scope.routename = $route.current.$$route.name;
-
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
         var authData = ref.getAuth();
 
