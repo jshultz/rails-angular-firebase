@@ -1,5 +1,7 @@
 == Rails Angular Firebase
 
+Feel free to FORK me and contribute to this project.
+
 The goal of this project is to provide a launching pad for projects that are using Rails and Angular. We'll be using Firebase for authentication and some user data storage. Most of the data will be stored in Postgres, however. This will aid in keeping the site speedy and low maintenance.
 
 I'll be backing up some user data into MySQL. I had originally planned on going with PostGres but decided to change course and go with MySQL instead.
@@ -26,8 +28,4 @@ TODO:
 2. User Managment: We can list users, we now need to be able to edit users.
 3. Need to implement a process to backup user to MySQL after they've been authenticated/created in firebase.
 4. Build out profile.
-5. Still need to add user levels or a root user of some sort. I'm thinking user levels.
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+5. Groups are implemented. You can Create and Update. Need to now add a way to join groups. Should be simple.
