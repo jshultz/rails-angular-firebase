@@ -6,6 +6,26 @@
 
   	var factory = {
 
+      addUserToGroup: function(user) {
+
+        var deferred = $q.defer();
+        var groupName = factory.getGroupName(user.group_id)
+        var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+        ref.child('users').orderByChild('email').equalTo(user.email).on('child_added', function(snapshot) {
+          theuser = snapshot.key()
+          ref.child('users').child(theuser).child('group').push({
+              id: user.group_id,
+              name: groupName
+            })
+          }
+        )
+
+        deferred.resolve(null)
+
+        return deferred.promise;
+
+      }, // addUserToGroup
+
 	    createGroup: function(group) {
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
         if (group == 'first') {
@@ -14,11 +34,14 @@
             id: guid,
             name: 'admin'
           })
-          var guid = factory.createGUID();
-          ref.child('groups').child(guid).set({
-            id: guid,
+          var anotherguid = factory.createGUID();
+          ref.child('groups').child(anotherguid).set({
+            id: anotherguid,
             name: 'users'
           })
+
+          return guid;
+
         } else {
           if (group.id) {
             ref.child('groups').child(group.id).set({
@@ -34,7 +57,6 @@
           }
           return factory.getGroupList();
         }
-        return guid;
       }, // createGroup
 
       createGUID: function() {
@@ -76,6 +98,18 @@
             return deferred.promise;
 	    }, // getAddress
 
+      getGroupIDByName: function(group_name) {
+        debugger;
+        ref.child('groups').orderByChild('name').equalTo(group_name).on('child_added', function(snapshot) {
+          if (snapshot) {
+            something = snapshot.val();
+          } else {
+            something = null
+          }
+        })
+        return something
+      }, // getGroupByName
+
       getGroupList: function() {
         var deferred = $q.defer();
         // Attach an asynchronous callback to read the data at our posts reference
@@ -89,6 +123,14 @@
         });
         return deferred.promise;
       }, // getGroupList
+
+      getGroupName: function(group_id) {
+        var ref= new Firebase("https://rails-angular-fireba.firebaseio.com");
+        ref.child('groups').child(group_id).on("value", function(snapshot) {
+          group = snapshot.val();
+        })
+        return group.name
+      },
 
       getName: function(authData) {
 	    	if (authData) {
@@ -151,7 +193,7 @@
                           var user_level = 1
                           console.log('no users')
                       } else {
-                        var group_id = null;
+                          var group_id = null;
                           var user_level = 10;
                           console.log('there are users')
                       }
@@ -163,13 +205,30 @@
                         var profile_photo = authData.twitter.cachedUserProfile.profile_image_url_https;
                       } // get Twitter profile photo
 
-                          ref.child("users").child(authData.uid).set({
-                              group: group_id,
-                              provider: authData.provider,
-                              full_name: factory.getName(authData),
-                              user_level: user_level,
-                              photo: profile_photo
-                          });
+                      ref.child("users").child(authData.uid).set({
+                          provider: authData.provider,
+                          full_name: factory.getName(authData),
+                          user_level: user_level,
+                          photo: profile_photo
+                      });
+
+                      if (child == false) {
+                        groupName = factory.getGroupName(group_id)
+                        ref.child('users').child(authData.uid).child('group').push({
+                            id: group_id,
+                            name: groupName
+                          })
+                      }
+
+                      if (child != false) {
+                        var group = factory.getGroupIDByName('users');
+                        ref.child('users').child(authData.uid).child('group').push({
+                            id: group.id,
+                            name: 'users'
+                          })
+                      }
+
+
                   });
   			  // save the user's profile into Firebase so we can list users,
   			  // use them in Security and Firebase Rules, and show profiles
