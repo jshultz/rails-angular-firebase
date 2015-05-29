@@ -183,6 +183,10 @@
   			});
   		}, // getUsers
 
+      getUsersGroups: function(params) {
+
+      }, // getUsersGroups
+
 	    userCreateCallback: function(authData) {
 	    	ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
   			if (authData) {

@@ -8,13 +8,20 @@
 
             <ul ng-model="userList" ng-repeat="user in userList">
                 <li>
+                    <img width="75" src="{{ user.photo }}">  Name: {{ user.full_name }} | Provider: {{ user.provider }}
                   <form novalidate class="form-inline">
                     <input type="hidden" name="user.id" value="{{ user.key }}" ng-model="user.id">
-                    <img width="75" src="{{ user.photo }}">  Name: {{ user.full_name }} | Provider: {{ user.provider }}
+                    <ul ng-repeat="group in user.group">
+                      <li>{{ group.name }}</li>
+                    </ul>
+                  </form>
+
+                  <form novalidate class="form-inline">
+                    <input type="hidden" name="user.id" value="{{ user.key }}" ng-model="user.id">
                     <div class="form-group">
                       <label class="sr-only" for="groupName">Group</label>
                       <div class="input-group">
-                        <select id="groups" ng-model="user.group_id" ng-options="key as value.name for (key, value) in groupList">
+                        <select class="form-control" id="groups" ng-model="user.group_id" ng-options="key as value.name for (key, value) in groupList">
                         </select>
                       </div>
                     </div>
