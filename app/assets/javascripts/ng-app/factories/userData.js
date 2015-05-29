@@ -99,15 +99,15 @@
 	    }, // getAddress
 
       getGroupIDByName: function(group_name) {
-        debugger;
+        var deferred = $q.defer();
         ref.child('groups').orderByChild('name').equalTo(group_name).on('child_added', function(snapshot) {
           if (snapshot) {
-            something = snapshot.val();
+              deferred.resolve(snapshot.val());
           } else {
-            something = null
+              deferred.resolve(null)
           }
         })
-        return something
+        return deferred.promise;
       }, // getGroupByName
 
       getGroupList: function() {
@@ -221,11 +221,14 @@
                       }
 
                       if (child != false) {
-                        var group = factory.getGroupIDByName('users');
-                        ref.child('users').child(authData.uid).child('group').push({
-                            id: group.id,
+                        factory.getGroupIDByName('users').then(function(response) {
+                          console.log('response', response);
+                          ref.child('users').child(authData.uid).child('group').push({
+                            id: response.id,
                             name: 'users'
                           })
+                        });
+
                       }
 
 
