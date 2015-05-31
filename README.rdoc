@@ -28,4 +28,4 @@ TODO:
 2. User Managment: We can list users, we now need to be able to edit users.
 3. Need to implement a process to backup user to MySQL after they've been authenticated/created in firebase.
 4. Build out profile.
-5. Groups are implemented. You can Create and Update. Need to now add a way to join groups. Should be simple.
+5. Groups are implemented. You can Create and Update groups. Need to remove from groups now.
