@@ -24,7 +24,7 @@
             </div>
             <div class="row">
               <div class="col-mid-12">
-                <ul ng-model="groupList" ng-repeat="group in groupList">
+                <ul id="adminGroups" ng-model="groupList" ng-repeat="group in groupList">
                     <li>
                       <form novalidate class="form-inline">
                         <input type="hidden" name="group.id" value="{{ group.id }}" ng-model="group.id">
