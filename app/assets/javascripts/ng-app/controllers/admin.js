@@ -13,7 +13,19 @@ angular.module('AngularRails')
 
       UserData.getGroupList().then(function(response) {
         $scope.groupList = response;
-      })
+      });
+
+      $scope.deleteGroupFromUser = function(user, group) {
+
+        console.log('group', group)
+
+        console.log('user', user)
+
+        UserData.deleteGroupFromUser(user,group).then(function(response) {
+          $scope.user = response;
+        })
+
+      }; // removeGroupFromUser
 
       $scope.updateGroup = function(group) {
         if (group) {

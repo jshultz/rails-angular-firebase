@@ -69,6 +69,15 @@
           s4() + '-' + s4() + s4() + s4();
       }, // createa a pseudo createGUID
 
+      deleteGroupFromUser: function(user, group) {
+
+        var deferred = $q.defer();
+
+        console.log('user', user);
+
+
+      }, // deleteGroupFromUser
+
       getAccessLevel: function(authData) {
         var deferred = $q.defer();
         // Attach an asynchronous callback to read the data at our posts reference
