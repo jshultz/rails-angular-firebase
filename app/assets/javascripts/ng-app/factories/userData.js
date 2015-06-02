@@ -75,9 +75,8 @@
         var deferred = $q.defer();
         console.log('user', user);
 
-        debugger;
+        factory.getUserGroupID(group.id)
 
-        return user;
       }, // deleteGroupFromUser
 
       getAccessLevel: function(authData) {
@@ -193,6 +192,14 @@
   			  return result.data;
   			});
   		}, // getUsers
+
+      getUserGroupID: function(params) {
+        var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+        debugger;
+        ref.child('users').child('group').orderByChild('id').equalto(params).on('child_added', function(snapshot) {
+          debugger;
+        })
+      },
 
       getUsersGroups: function(params) {
 
