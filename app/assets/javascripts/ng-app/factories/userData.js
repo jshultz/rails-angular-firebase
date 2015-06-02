@@ -3,6 +3,7 @@
   //  This gets the current logged in teacher. It's magic. :)
 
   angular.module('AngularRails').factory('UserData', ['$http','$q', function($http,$q) {
+    var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
 
   	var factory = {
 
@@ -72,10 +73,11 @@
       deleteGroupFromUser: function(user, group) {
 
         var deferred = $q.defer();
-
         console.log('user', user);
 
+        debugger;
 
+        return user;
       }, // deleteGroupFromUser
 
       getAccessLevel: function(authData) {
