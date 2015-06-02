@@ -72,31 +72,33 @@
 
       deleteGroupFromUser: function(user, group) {
 
-        user_id = factory.getUserIDByEmail(user)
+        factory.getUserIDByEmail(user).then(function(response) {
 
-        groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/" + user.id + '/group/' + group.id)
+          groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/" + response + '/group/' + group.id)
 
-        var onComplete = function(error) {
-          if (error) {
-            console.log('Synchronization failed' + error);
-          } else {
-            console.log('Synchronization succeeded');
-          }
-        };
+          var onComplete = function(error) {
+            if (error) {
+              console.log('Synchronization failed' + error);
+            } else {
+              console.log('Synchronization succeeded');
 
-        groupRef.remove(onComplete);
-        // Same as the previous example, except we will also log
-        // a message when the delete has finished synchronizing
+              var deferred = $q.defer();
 
-        var deferred = $q.defer();
+              delete user.group[group.id]
 
-        delete user.group[group.id]
+              if (ref.child('users').child('group').child(group.id).remove()) {
+                defered.resolve(user)
+              }
 
-        if (ref.child('users').child('group').child(group.id).remove()) {
-          defered.resolve(user)
-        }
+              return deferred.promise
 
-        return deferred.promise
+
+            }
+          };
+
+          groupRef.remove(onComplete);
+
+        })
 
       }, // deleteGroupFromUser
 
@@ -207,15 +209,15 @@
       }, // getProfilePhoto
 
       getUserIDByEmail: function(user) {
-        user_email = user.email
-        ref.child('users').orderByChild('email').equalTo(user_email).on('child_added', function(snapshot) {
+        var deferred = $q.defer();
+        ref.child('groups').orderByChild('email').equalTo(user.email).on('child_added', function(snapshot) {
           if (snapshot) {
-            debugger;
-            return snapshot.val().name();
+              deferred.resolve(snapshot.key());
           } else {
-              return false
+              deferred.resolve(null)
           }
         })
+        return deferred.promise;
       }, // getGroupByName
 
 	    getUsers: function(params) {
