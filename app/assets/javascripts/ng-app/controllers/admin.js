@@ -17,10 +17,6 @@ angular.module('AngularRails')
 
       $scope.deleteGroupFromUser = function(user, group) {
 
-        console.log('group', group)
-
-        console.log('user', user)
-
         UserData.deleteGroupFromUser(user,group).then(function(response) {
           $scope.user = response;
         })

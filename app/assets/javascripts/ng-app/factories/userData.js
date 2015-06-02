@@ -72,10 +72,31 @@
 
       deleteGroupFromUser: function(user, group) {
 
-        var deferred = $q.defer();
-        console.log('user', user);
+        user_id = factory.getUserIDByEmail(user)
 
-        factory.getUserGroupID(group.id)
+        groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/" + user.id + '/group/' + group.id)
+
+        var onComplete = function(error) {
+          if (error) {
+            console.log('Synchronization failed' + error);
+          } else {
+            console.log('Synchronization succeeded');
+          }
+        };
+
+        groupRef.remove(onComplete);
+        // Same as the previous example, except we will also log
+        // a message when the delete has finished synchronizing
+
+        var deferred = $q.defer();
+
+        delete user.group[group.id]
+
+        if (ref.child('users').child('group').child(group.id).remove()) {
+          defered.resolve(user)
+        }
+
+        return deferred.promise
 
       }, // deleteGroupFromUser
 
@@ -185,6 +206,18 @@
           return deferred.promise;
       }, // getProfilePhoto
 
+      getUserIDByEmail: function(user) {
+        user_email = user.email
+        ref.child('users').orderByChild('email').equalTo(user_email).on('child_added', function(snapshot) {
+          if (snapshot) {
+            debugger;
+            return snapshot.val().name();
+          } else {
+              return false
+          }
+        })
+      }, // getGroupByName
+
 	    getUsers: function(params) {
   			return $http.get('https://rails-angular-fireba.firebaseio.com/users.json', {
   			  "params" : params
@@ -193,13 +226,13 @@
   			});
   		}, // getUsers
 
-      getUserGroupID: function(params) {
-        var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-        debugger;
-        ref.child('users').child('group').orderByChild('id').equalto(params).on('child_added', function(snapshot) {
-          debugger;
-        })
-      },
+      // getUserGroupID: function(params) {
+      //   var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+      //   debugger;
+      //   ref.child('users').child('group').orderByChild('id').equalto(params).on('child_added', function(snapshot) {
+      //     debugger;
+      //   })
+      // }, getUserGroupID - doesn't work.
 
       getUsersGroups: function(params) {
 
@@ -236,7 +269,7 @@
 
                       if (child == false) {
                         groupName = factory.getGroupName(group_id)
-                        ref.child('users').child(authData.uid).child('group').push({
+                        ref.child('users').child(authData.uid).child('group').child(group_id).set({
                             id: group_id,
                             name: groupName
                           })
@@ -245,7 +278,7 @@
                       if (child != false) {
                         factory.getGroupIDByName('users').then(function(response) {
                           console.log('response', response);
-                          ref.child('users').child(authData.uid).child('group').push({
+                          ref.child('users').child(authData.uid).child('group').child(response.id).set({
                             id: response.id,
                             name: 'users'
                           })
