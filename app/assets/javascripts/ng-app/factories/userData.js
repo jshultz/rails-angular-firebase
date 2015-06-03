@@ -14,7 +14,7 @@
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
         ref.child('users').orderByChild('email').equalTo(user.email).on('child_added', function(snapshot) {
           theuser = snapshot.key()
-          ref.child('users').child(theuser).child('group').push({
+          ref.child('users').child(theuser).child('group').child(user.group_id).set({
               id: user.group_id,
               name: groupName
             })
@@ -71,34 +71,6 @@
       }, // createa a pseudo createGUID
 
       deleteGroupFromUser: function(user, group) {
-
-        factory.getUserIDByEmail(user).then(function(response) {
-
-          groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/" + response + '/group/' + group.id)
-
-          var onComplete = function(error) {
-            if (error) {
-              console.log('Synchronization failed' + error);
-            } else {
-              console.log('Synchronization succeeded');
-
-              var deferred = $q.defer();
-
-              delete user.group[group.id]
-
-              if (ref.child('users').child('group').child(group.id).remove()) {
-                defered.resolve(user)
-              }
-
-              return deferred.promise
-
-
-            }
-          };
-
-          groupRef.remove(onComplete);
-
-        })
 
       }, // deleteGroupFromUser
 
@@ -210,11 +182,13 @@
 
       getUserIDByEmail: function(user) {
         var deferred = $q.defer();
-        ref.child('groups').orderByChild('email').equalTo(user.email).on('child_added', function(snapshot) {
+        var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
+        user_email = user.email;
+        ref.child('users').orderByChild('email').equalTo(user_email).on('child_added', function(snapshot) {
           if (snapshot) {
-              deferred.resolve(snapshot.key());
+              deferred.resolve(snapshot.key())
           } else {
-              deferred.resolve(null)
+            deferred.resolve(null)
           }
         })
         return deferred.promise;
@@ -227,14 +201,6 @@
   			  return result.data;
   			});
   		}, // getUsers
-
-      // getUserGroupID: function(params) {
-      //   var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
-      //   debugger;
-      //   ref.child('users').child('group').orderByChild('id').equalto(params).on('child_added', function(snapshot) {
-      //     debugger;
-      //   })
-      // }, getUserGroupID - doesn't work.
 
       getUsersGroups: function(params) {
 

@@ -17,10 +17,20 @@ angular.module('AngularRails')
 
       $scope.deleteGroupFromUser = function(user, group) {
 
-        UserData.deleteGroupFromUser(user,group).then(function(response) {
-          $scope.user = response;
+        UserData.getUserIDByEmail(user).then(function(response) {
+          groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/users/" + response + '/group/')
+          var onComplete = function(error) {
+            console.log('error', error);
+            if (error) {
+              console.log('Synchronization failed' + error);
+            } else {
+              delete user.group[group.id]
+              $scope.user = user;
+              console.log('Synchronization succeeded');
+            }
+          }; // onComplete
+          groupRef.child(group.id).remove(onComplete);
         })
-
       }; // removeGroupFromUser
 
       $scope.updateGroup = function(group) {
