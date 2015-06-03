@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-2"><img width="75" src="{{ user.photo }}"></div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-12">
+        Name: {{ user.full_name }} | Provider: {{ user.provider }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ul id="adminUsersGroups" ng-repeat="group in user.group">
+          <li>
+            <form novalidate class="form-inline">
+              <!-- <input type="hidden" name="user.email" value="{{ user.email }}" ng-model="group.user_email"> -->
+              <input type="hidden" name="group.group_id" value="{{ group.id }}" ng-model="group.id">
+              {{ group.name }}
+              <input type="submit" class="btn btn-danger brn-xs" value="X" ng-click="deleteGroupFromUser(user, group)">
+            </form>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <form novalidate class="form-inline">
+            <input type="hidden" name="user.id" value="{{ user.key }}" ng-model="user.id">
+            <div class="form-group">
+              <label class="sr-only" for="groupName">Group</label>
+              <div class="input-group">
+                <select class="form-control" id="groups" ng-model="user.group_id" ng-options="key as value.name for (key, value) in groupList">
+                </select>
+              </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Update User" ng-click="updateUser(user)">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
