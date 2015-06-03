@@ -1,4 +1,4 @@
-angular.module("mySharedElements", []).directive('userItem', [function() {
+angular.module("AngularRails").directive('userItem', [function() {
 
     // This is a directive, it is used to populate the li Material in the index of the Material Angular App.
 
@@ -23,6 +23,6 @@ angular.module("mySharedElements", []).directive('userItem', [function() {
 
         }],
 
-        templateUrl : '../templates/directives/_user.html'
+        templateUrl : 'directives/_user.html'
     }
 }]);
