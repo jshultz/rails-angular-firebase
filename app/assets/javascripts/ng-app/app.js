@@ -2,7 +2,8 @@ angular
     .module('AngularRails',[
       'ngRoute',
       'templates',
-      'firebase',])
+      'firebase',
+      'mySharedElements',])
     .config(function ($routeProvider, $locationProvider) {
 
         $routeProvider.when("/", {
