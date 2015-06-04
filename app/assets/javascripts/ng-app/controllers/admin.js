@@ -16,15 +16,16 @@ angular.module('AngularRails')
       });
 
       $scope.deleteGroupFromUser = function(user, group) {
-
         UserData.getUserIDByEmail(user).then(function(response) {
           groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/users/" + response + '/group/')
           var onComplete = function(error) {
             if (error) {
               console.log('Synchronization failed' + error);
             } else {
-              user = delete user.group[group.id]
-              $scope.user = user;
+              $timeout(function() {
+                delete user.group[group.id]
+              }, 1); // timeout
+              console.log('user', user)
               console.log('Synchronization succeeded');
             }
           }; // onComplete
@@ -66,9 +67,13 @@ angular.module('AngularRails')
           }; // onComplete
 
           if (user.group_id) {
-
             UserData.addUserToGroup(user).then(function(response) {
-              $scope.user = response;
+              $timeout(function() {
+                console.log('response', response)
+                console.log('here')
+                user = response;
+              }, 1); // timeout
+              
             })
           }
 

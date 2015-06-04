@@ -20,8 +20,8 @@
             })
           }
         )
-
-        deferred.resolve(null)
+        
+        deferred.resolve(user);
 
         return deferred.promise;
 
