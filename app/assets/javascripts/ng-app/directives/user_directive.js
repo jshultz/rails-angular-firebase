@@ -6,19 +6,20 @@ angular.module("AngularRails").directive('userItem', [function() {
         scope: {
             user: "=user",
             current_teacher: "=currentteacher",
-            delete: '&',
-            update: '&',
+            delete: '&delete',
+            update: '&update',
+            groupList: '=groups',
             index: '@'
         },
 
         controller: ['$scope', function ($scope) {
 
-          $scope.deleteThis = function (index, material) {
-            $scope.delete()(index, material);
+          $scope.deleteGroupFromUser = function (user, group) {
+            $scope.delete()(user, group);
           } // end deleteThis
 
-          $scope.updateThis = function (index, material) {
-            $scope.update()(index, material);
+          $scope.updateUser = function (user) {
+            $scope.update()(user);
           } // end deleteThis
 
         }],

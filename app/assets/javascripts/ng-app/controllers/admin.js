@@ -20,11 +20,10 @@ angular.module('AngularRails')
         UserData.getUserIDByEmail(user).then(function(response) {
           groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/users/" + response + '/group/')
           var onComplete = function(error) {
-            console.log('error', error);
             if (error) {
               console.log('Synchronization failed' + error);
             } else {
-              delete user.group[group.id]
+              user = delete user.group[group.id]
               $scope.user = user;
               console.log('Synchronization succeeded');
             }
