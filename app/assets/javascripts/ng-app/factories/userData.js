@@ -13,8 +13,6 @@
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
         ref.child('users').orderByChild('email').equalTo(user.email).on('child_added', function(snapshot) {
           theuser = snapshot.key()
-          debugger;
-
           ref.child('users').child(theuser).child('group').child(group_id).set({
               id: group_id,
               name: groupName
