@@ -5,6 +5,7 @@ angular.module("AngularRails").directive('userItem', [function() {
     return {
         scope: {
             user: "=user",
+            group: "=group",
             current_teacher: "=currentteacher",
             delete: '&delete',
             update: '&update',

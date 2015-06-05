@@ -7,21 +7,29 @@
 
   	var factory = {
 
-      addUserToGroup: function(user) {
-
+      addUserToGroup: function(user, group_id) {
         var deferred = $q.defer();
-        var groupName = factory.getGroupName(user.group_id)
+        var groupName = factory.getGroupName(group_id)
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");
         ref.child('users').orderByChild('email').equalTo(user.email).on('child_added', function(snapshot) {
           theuser = snapshot.key()
-          ref.child('users').child(theuser).child('group').child(user.group_id).set({
-              id: user.group_id,
+          debugger;
+
+          ref.child('users').child(theuser).child('group').child(group_id).set({
+              id: group_id,
               name: groupName
+            }, function(error) {
+              if (error) {
+                console.log("Synchronization failed " + error);
+              } else {
+                console.log("Synchronization succeeded");
+                ref.child('groups').orderByChild('name').equalTo(groupName).on('child_added', function(snapshot) {
+                  deferred.resolve(snapshot.val());
+                })
+              }
             })
           }
         )
-        
-        deferred.resolve(user);
 
         return deferred.promise;
 
@@ -103,7 +111,7 @@
             return deferred.promise;
 	    }, // getAddress
 
-      getGroupIDByName: function(group_name) {
+      getGroupByName: function(group_name) {
         var deferred = $q.defer();
         ref.child('groups').orderByChild('name').equalTo(group_name).on('child_added', function(snapshot) {
           if (snapshot) {
@@ -244,7 +252,7 @@
                       }
 
                       if (child != false) {
-                        factory.getGroupIDByName('users').then(function(response) {
+                        factory.getGroupByName('users').then(function(response) {
                           console.log('response', response);
                           ref.child('users').child(authData.uid).child('group').child(response.id).set({
                             id: response.id,

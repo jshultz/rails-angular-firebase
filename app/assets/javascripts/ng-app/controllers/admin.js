@@ -46,17 +46,25 @@ angular.module('AngularRails')
           var guid = UserData.createGUID();
           if (group.id) {
             UserData.createGroup(group).then(function(response) {
-              $scope.groupList = response;
+              $timeout(function() {
+                console.log('response', response)
+                $scope.groupList = response;
+              }, 1); // timeout
             })
           } else {
             UserData.createGroup(group.name).then(function(response) {
-              $scope.groupList = response;
+              $timeout(function() {
+                console.log('response', response)
+                $scope.groupList = response;
+              }, 1); // timeout
+
             });
           }
         } // if group
       } // updateGroup
 
       $scope.updateUser = function(user) {
+        group_id = user.group_id
         if (user) {
           var onComplete = function(error) {
             if (error) {
@@ -67,13 +75,13 @@ angular.module('AngularRails')
           }; // onComplete
 
           if (user.group_id) {
-            UserData.addUserToGroup(user).then(function(response) {
+            UserData.addUserToGroup(user, group_id).then(function(response) {
+              console.log('response', response)
               $timeout(function() {
-                console.log('response', response)
-                console.log('here')
-                user = response;
+                debugger;
+                user.groups = response;
               }, 1); // timeout
-              
+
             })
           }
 
