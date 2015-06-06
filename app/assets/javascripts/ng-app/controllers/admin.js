@@ -78,7 +78,10 @@ angular.module('AngularRails')
             UserData.addUserToGroup(user, group_id).then(function(response) {
               console.log('response', response)
               $timeout(function() {
-                user = angular.extend(user.group, response);
+                user.group[response.id] = {
+                  id: response.id,
+                  name: response.name
+                };
               }, 1); // timeout
 
             })
