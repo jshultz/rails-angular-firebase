@@ -25,7 +25,9 @@ More details to come.
 TODO:
 
 1. Add security features. [sort of done]
-2. User Managment: We can list users, we now need to be able to edit users.
+2. User Managment:
+  1. We can Add Users to groups and remove Users from Groups.
 3. Need to implement a process to backup user to MySQL after they've been authenticated/created in firebase.
-4. Build out profile.
-5. CRUD for groups on users works now. working on the UI now.
+4. Build out profile:
+  1. We need to be able to add ourselves to a Group from the Profile page.
+5. Need to make Contact Form
