@@ -20,6 +20,10 @@ angular.module('AngularRails')
       $scope.$apply()
     }
 
+    UserData.getGroupList().then(function(response) {
+      $scope.groupList = response;
+    });
+
     // any time auth status updates, add the user data to scope
     $scope.auth.$onAuth(function(authData) {
     }); // $scope.auth.$onAuth(
@@ -44,7 +48,58 @@ angular.module('AngularRails')
         }
       }); // getPhone
 
-    }
+      UserData.getUser(authData).then(function(response){
+        if (response != null) {
+          $scope.user = response;
+        } else {
+          $scope.user = '';
+        }
+      })
+
+    } // authData
+
+    $scope.updateUser = function(user) {
+      group_id = user.group_id
+      if (user) {
+        var onComplete = function(error) {
+          if (error) {
+            console.log('Synchronization failed' + error);
+          } else {
+            console.log('Synchronization succeeded');
+          }
+        }; // onComplete
+
+        if (user.group_id) {
+          UserData.addUserToGroup(user, group_id).then(function(response) {
+            console.log('response', response)
+            $timeout(function() {
+              user.group[response.id] = {
+                id: response.id,
+                name: response.name
+              };
+            }, 1); // timeout
+          })
+        }
+      } // if user
+    } // updateGroup
+
+    $scope.deleteGroupFromUser = function(user, group) {
+      UserData.getUserIDByEmail(user).then(function(response) {
+        groupRef = new Firebase("https://rails-angular-fireba.firebaseio.com/users/" + response + '/group/')
+        var onComplete = function(error) {
+          if (error) {
+            console.log('Synchronization failed' + error);
+          } else {
+            $timeout(function() {
+              delete user.group[group.id]
+            }, 1); // timeout
+            console.log('user', user)
+            console.log('Synchronization succeeded');
+          }
+        }; // onComplete
+        groupRef.child(group.id).remove(onComplete);
+      })
+    }; // removeGroupFromUser
 
     $scope.step1 = function() {
 

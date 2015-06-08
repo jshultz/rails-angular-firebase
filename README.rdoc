@@ -22,12 +22,17 @@ Project Overview:
 
 More details to come.
 
+== Features
+
+1. Supports oAuth login via Facebook and Twitter
+2. Admin Section
+3. User Profile Section
+4. Group Management
+
+
 TODO:
 
 1. Add security features. [sort of done]
-2. User Managment:
-  1. We can Add Users to groups and remove Users from Groups.
-3. Need to implement a process to backup user to MySQL after they've been authenticated/created in firebase.
-4. Build out profile:
-  1. We need to be able to add ourselves to a Group from the Profile page.
-5. Need to make Contact Form
+2. Need to implement a process to backup user to MySQL after they've been authenticated/created in firebase.
+3. Need to make Contact Form
+4. Add to Group Managment where Admin can see members of a Group.

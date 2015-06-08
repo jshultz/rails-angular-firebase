@@ -99,4 +99,34 @@
 
 </div>
 
+<div class="row">
+  <div class="col-md-6">
+    <h4>Join A Group</h4>
+    <form novalidate class="form-inline">
+      <input type="hidden" name="user.id" value="{{ user.key }}" ng-model="user.id">
+      <div class="form-group">
+        <label class="sr-only" for="groupName">Group</label>
+        <div class="input-group">
+          <select class="form-control" id="groups" ng-model="user.group_id" ng-options="key as value.name for (key, value) in groupList">
+          </select>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Update User" ng-click="updateUser(user)">
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h4>Groups Your a Member of</h4>
+    <ul id="adminUsersGroups" ng-repeat="group in user.group">
+      <li>
+        <form novalidate class="form-inline">
+          <input type="hidden" name="group.group_id" value="{{ group.id }}" ng-model="group.id">
+          {{ group.name }}
+          <input type="submit" class="btn btn-danger brn-xs" value="X" ng-click="deleteGroupFromUser(user, group)">
+        </form>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
 </div>

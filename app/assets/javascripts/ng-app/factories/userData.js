@@ -186,6 +186,18 @@
           return deferred.promise;
       }, // getProfilePhoto
 
+      getUser: function(authData){
+        var deferred = $q.defer();
+        ref.child('users').child(authData.uid).on("value", function(snapshot) {
+            if (snapshot) {
+                deferred.resolve(snapshot.val());
+            } else {
+                deferred.resolve(null)
+            }
+        });
+        return deferred.promise;
+      },
+
       getUserIDByEmail: function(user) {
         var deferred = $q.defer();
         var ref = new Firebase("https://rails-angular-fireba.firebaseio.com");

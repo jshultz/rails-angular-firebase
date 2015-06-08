@@ -83,13 +83,8 @@ angular.module('AngularRails')
                   name: response.name
                 };
               }, 1); // timeout
-
             })
           }
-
-
-
-
         } // if user
       } // updateGroup
 

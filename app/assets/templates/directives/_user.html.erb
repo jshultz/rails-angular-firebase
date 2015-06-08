@@ -11,7 +11,6 @@
         <ul id="adminUsersGroups" ng-repeat="group in user.group">
           <li>
             <form novalidate class="form-inline">
-
               <input type="hidden" name="group.group_id" value="{{ group.id }}" ng-model="group.id">
               {{ group.name }}
               <input type="submit" class="btn btn-danger brn-xs" value="X" ng-click="deleteGroupFromUser(user, group)">
