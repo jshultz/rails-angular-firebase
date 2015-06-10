@@ -10,9 +10,9 @@
               <div class="col-md-12">
                 <label class="sr-only" for="groupName">Filter By Group</label>
                 <div class="input-group">
-                  <select class="form-control" ng-model="group" ng-options="key as value.name for (key, value) in groupList">
+                  <select class="form-control" ng-model="group.id" ng-options="key as value.name for (key, value) in groupList">
                   </select>
-                  <p>Filter by: {{ group }}</p>
+                  <p>Filter by: {{ group.id }}</p>
                 </div>
               </div>
 
@@ -20,7 +20,7 @@
 
             <div class="row">
               <div class="col-md-12">
-                <section id="adminUsers" ng-model="userList" ng-repeat="user in userList | filter:group">
+                <section id="adminUsers" ng-model="userList" ng-repeat="user in userList">
                   <p>user.group: {{ user.group }}</p>
                   <div user-item
                        user="user"
